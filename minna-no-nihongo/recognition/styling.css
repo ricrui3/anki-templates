@@ -1,0 +1,31 @@
+.card {
+ font-family:  ume-pms3 ;
+ font-size: 28px;
+ text-align: center;
+ color: black;
+ background-color: white;
+}
+
+.lesson {
+	font-size: 13px;
+ 	text-align: center;
+}
+
+/* hide the checkbox */
+#demo {
+	display:none;
+}
+
+/* when checkbox is active, show for furigana */
+#demo:checked + label ruby rt {
+	visibility: visible; 
+}
+
+/* furigana hidden */
+.furihide ruby rt { 
+	visibility: hidden; 
+}
+
+#tts { 
+	display:none;
+}

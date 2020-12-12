@@ -1,0 +1,22 @@
+<div class="lesson">Lesson {{Lesson Number}}</div>
+
+<!-- checkbox hack to display furigana on click -->
+<label for="">{{furigana:Reading}}</label>
+<br/><br/>
+{{Example}}
+<hr id=answer>
+
+{{Meaning}}
+
+<br/><br/>
+<a href="https://jisho.org/search/{{Expression}}">
+	Go to Jisho {{Expression}}
+</a>
+<br/>
+<a href="https://aulex.org/ja-es/?busca={{Expression}}">
+	Go to aulex.org {{Expression}}
+</a>
+
+<div id="tts">
+	<tts service="android" voice="ja_JP">{{Expression}}</tts>
+</div>
