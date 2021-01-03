@@ -1,18 +1,18 @@
 .card {
     font-family: ume-pms3;
-    font-size: 28px;
+    font-size: 35px;
     text-align: center;
     color: black;
     background-color: white;
 }
 
 .lesson {
-    font-size: 13px;
+    font-size: 20px;
     text-align: center;
 }
 
 /* hide the checkbox */
-#demo {
+#furigana-switch {
     display: none;
 }
 
