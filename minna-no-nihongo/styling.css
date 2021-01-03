@@ -1,46 +1,46 @@
 .card {
- font-family:  ume-pms3 ;
- font-size: 28px;
- text-align: center;
- color: black;
- background-color: white;
+    font-family: ume-pms3;
+    font-size: 28px;
+    text-align: center;
+    color: black;
+    background-color: white;
 }
 
 .lesson {
-	font-size: 13px;
- 	text-align: center;
+    font-size: 13px;
+    text-align: center;
 }
 
 /* hide the checkbox */
 #demo {
-	display:none;
+    display: none;
 }
 
 /* when checkbox is active, show for furigana */
-#demo:checked + label ruby rt {
-	visibility: visible; 
+#demo:checked+label ruby rt {
+    visibility: visible;
 }
 
 /* furigana hidden */
-.furihide ruby rt { 
-	visibility: hidden; 
+.furihide ruby rt {
+    visibility: hidden;
 }
 
-#tts { 
-	display:none;
+#tts {
+    display: none;
 }
 
 
 .link {
-   /* RESET */
-   line-height: 1;
-   
-   position: relative;
-   z-index: 0;
-   display: inline-block;
-   padding: 5px 5px;
-   overflow: hidden;
-   color: #e88aff;
-   vertical-align: bottom;
-   transition: color .3s ease-out;
+    /* RESET */
+    line-height: 1;
+
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 5px 5px;
+    overflow: hidden;
+    color: #e88aff;
+    vertical-align: bottom;
+    transition: color .3s ease-out;
 }
