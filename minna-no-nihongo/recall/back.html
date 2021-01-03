@@ -1,0 +1,27 @@
+{{FrontSide}}
+<hr id=answer>
+<!-- checkbox hack to display furigana on click -->
+<div>
+    {{furigana:Reading}}
+</div>
+<div class="">
+    {{#Example}}
+    {{furigana:Example}}
+    {{/Example}}
+</div>
+<div>
+    <a class="link" href="https://jisho.org/search/{{Expression}}">
+        Go to Jisho
+    </a>
+</div>
+<div>
+    <a class="link" href="https://aulex.org/ja-es/?busca={{Expression}}">
+        Go to aulex.org
+    </a>
+</div>
+<div id="tts">
+    <tts service="android" voice="ja_JP">{{Expression}}。</tts>
+    {{#Example}}
+    <tts service="android" voice="ja_JP">例：{{Example}}</tts>
+    {{/Example}}
+</div>
