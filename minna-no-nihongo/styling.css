@@ -17,13 +17,17 @@
 }
 
 /* when checkbox is active, show for furigana */
-#demo:checked+label ruby rt {
+#furigana-switch:checked+label ruby rt {
     visibility: visible;
 }
 
 /* furigana hidden */
 .furihide ruby rt {
     visibility: hidden;
+}
+
+.hide {
+    display: none;
 }
 
 #tts {
