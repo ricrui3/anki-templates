@@ -1,12 +1,21 @@
+<!-- RECALL -->
 {{FrontSide}}
 <hr id=answer>
 <!-- checkbox hack to display furigana on click -->
+<!-- Reading -->
 <div>
-    {{furigana:Reading}}
+    <label onclick="myFunction('readingInput')">
+        {{furigana:Reading}}
+    </label>
+    <input class="hide" value="{{kanji:Reading}}" id="readingInput">
 </div>
-<div class="">
+<!-- Example -->
+<div>
     {{#Example}}
-    {{furigana:Example}}
+    <label onclick="myFunction('exampleInput')">
+        {{furigana:Example}}
+    </label>
+    <input class="hide" value="{{kanji:Example}}" id="exampleInput">
     {{/Example}}
 </div>
 <div>
@@ -25,3 +34,19 @@
     <tts service="android" voice="ja_JP">例：{{Example}}</tts>
     {{/Example}}
 </div>
+<div id="tts">
+    {{tts ja_JP voices=AwesomeTTS:Expression}}
+    {{#Example}}
+    {{tts ja_JP voices=AwesomeTTS:Example}}
+    {{/Example}}
+</div>
+<!-- Script -->
+<script>
+function myFunction(id) {
+    var copyText = document.getElementById(id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}
+</script>

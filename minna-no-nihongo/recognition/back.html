@@ -1,33 +1,60 @@
+<!-- RECOGNITION -->
+<!-- Lesson -->
 <div class="lesson">
-	Lesson {{Lesson Number}}
+    Lesson {{Lesson Number}}
 </div>
-
-<label>{{furigana:Reading}}</label>
-
-<div class="">
-	{{#Example}}
-	{{furigana:Example}}
-	{{/Example}}
+<!-- Reading -->
+<div>
+    <label onclick="myFunction('readingInput')">
+        {{furigana:Reading}}
+    </label>
+    <input class="hide" value="{{kanji:Reading}}" id="readingInput">
 </div>
-
+<!-- Example -->
+<div>
+    {{#Example}}
+    <label onclick="myFunction('exampleInput')">
+        {{furigana:Example}}
+    </label>
+    <input class="hide" value="{{kanji:Example}}" id="exampleInput">
+    {{/Example}}
+</div>
 <hr id=answer>
-
-{{Meaning}}
-
+<!-- Meaning -->
+<div id="meaningDiv">
+    {{Meaning}}
+</div>
+<!-- Links -->
 <div>
-	<a class="link" href="https://jisho.org/search/{{Expression}}">
-		Go to Jisho
-	</a>
+    <a class="link" href="https://jisho.org/search/{{Expression}}">
+        Go to Jisho
+    </a>
 </div>
 <div>
-	<a class="link" href="https://aulex.org/ja-es/?busca={{Expression}}">
-		Go to aulex.org
-	</a>
+    <a class="link" href="https://aulex.org/ja-es/?busca={{Expression}}">
+        Go to aulex.org
+    </a>
 </div>
-
+<!-- Tts -->
 <div id="tts">
-	<tts service="android" voice="ja_JP">{{Expression}}。</tts>
-	{{#Example}}
-	<tts service="android" voice="ja_JP">例：{{Example}}</tts>
-	{{/Example}}
+    <tts service="android" voice="ja_JP">{{Expression}}。</tts>
+    {{#Example}}
+    <tts service="android" voice="ja_JP">例：{{Example}}</tts>
+    {{/Example}}
 </div>
+<div id="tts">
+    {{tts ja_JP voices=AwesomeTTS:Expression}}
+    {{#Example}}
+    {{tts ja_JP voices=AwesomeTTS:Example}}
+    {{/Example}}
+</div>
+<!-- Script -->
+<script>
+function myFunction(id) {
+    var copyText = document.getElementById(id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}
+</script>
