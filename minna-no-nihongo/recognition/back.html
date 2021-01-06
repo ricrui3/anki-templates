@@ -11,25 +11,28 @@
     <input class="hide" value="{{kanji:Reading}}" id="readingInput">
 </div>
 <!-- Example -->
+{{#Example}}
+<br>
 <div>
-    {{#Example}}
     <label onclick="myFunction('exampleInput')">
         {{furigana:Example}}
     </label>
     <input class="hide" value="{{kanji:Example}}" id="exampleInput">
-    {{/Example}}
 </div>
+{{/Example}}
 <hr id=answer>
 <!-- Meaning -->
 <div id="meaningDiv">
     {{Meaning}}
 </div>
 {{#ExampleMeaning}}
+<br>
 <div>
     {{ExampleMeaning}}
 </div>
 {{/ExampleMeaning}}
 <!-- Links -->
+<br>
 <div>
     <a class="link" href="https://jisho.org/search/{{Expression}}">
         Go to Jisho
