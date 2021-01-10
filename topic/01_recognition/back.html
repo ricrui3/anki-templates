@@ -1,0 +1,36 @@
+<!-- RECOGNITION -->
+{{furigana:Front}}
+{{#furigana}}
+<br>
+<label class="furigana">
+    {{furigana}}
+</label>
+{{/furigana}}
+<br>
+{{#example}}
+<div style='font-family: Arial; font-size: 20px;'>
+    {{furigana:example}}
+</div>
+{{/example}}
+<hr id=answer>
+{{Back}}
+<div style='font-family: Arial; font-size: 20px;'>{{Back-Spanish}}</div>
+<a class="link" href="https://jisho.org/search/{{text:Front}}">
+    jisho.org
+</a>
+<br>
+<a class="link" href="https://aulex.org/ja-es/?busca={{text:Front}}">
+    aulex.org
+</a>
+<div id="tts">
+    <tts service="android" voice="ja_JP">{{Front}}。。。</tts>
+    {{#example}}
+    <tts service="android" voice="ja_JP">{{example}}</tts>
+    {{/example}}
+</div>
+<div id="tts">
+    {{tts ja_JP voices=Apple_Otoya:kanji:Front}}
+    {{#example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:example}}
+    {{/example}}
+</div>

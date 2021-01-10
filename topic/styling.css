@@ -1,0 +1,30 @@
+.card {
+    font-family: ume-pms3;
+    font-size: 40px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+.furigana-hidden {
+    visibility: hidden;
+}
+
+.furigana {
+    font-family: arial;
+    font-size: 20px;
+    color: gray;
+}
+
+#tts {
+    display: none;
+}
+
+
+#btnControl:checked+label {
+    visibility: visible;
+}
+
+.link {
+    color: #03b6fc;
+}
