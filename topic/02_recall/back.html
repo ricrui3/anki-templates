@@ -1,32 +1,31 @@
 <!-- RECALL -->
 {{FrontSide}}
-<hr id=answer>
-{{furigana:Front}}
-<br>
-{{#furigana}}
-<label class="furigana">
-    {{furigana}}
-</label>
-{{/furigana}}
-{{#example}}
-<div style='font-family: Arial; font-size: 20px;'>
-    {{furigana:example}}
-</div>
-{{/example}}
-<div>
-    <a class="link" href="https://jisho.org/search/{{text:Front}}">
-        jisho.org
-    </a>
-</div>
-<div>
-    <a class="link" href="https://aulex.org/ja-es/?busca={{text:Front}}">
-        aulex.org
-    </a>
+<div class="outside"> Answer</div>
+<div class="card-back shadow">
+    <div class="back">{{furigana:Front}}</div>
+    {{#furigana}}
+    <hr />
+    <div class="backopt">{{furigana}}</div>
+    {{/furigana}}
+    {{#example}}
+    <hr />
+    <div class="backopt">{{furigana:example}}</div>
+    {{/example}}
+    <hr />
+    <div class="backopt">
+        <a class="link" href="https://jisho.org/search/{{text:Front}}">
+            jisho.org
+        </a>
+        <br>
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Front}}">
+            aulex.org
+        </a>
+    </div>
 </div>
 <div id="tts">
-    <tts service="android" voice="ja_JP">{{kanji:Front}}。。。</tts>
+    <tts service="android" voice="ja_JP">{{Front}}</tts>
     {{#example}}
-    <tts service="android" voice="ja_JP">{{kanji:example}}</tts>
+    <tts service="android" voice="ja_JP">{{example}}</tts>
     {{/example}}
 </div>
 <div id="tts">
