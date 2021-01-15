@@ -522,12 +522,29 @@ hr {
 
 /* Literal.Number.Integer.Long */
 
+/*---------Topic deck*/
 .furigana-hidden {
     visibility: hidden;
 }
 
 #btnControl:checked+label {
     visibility: visible;
+}
+
+/*---------MNNH deck*/
+/* hide the checkbox */
+#furigana-switch {
+    display: none;
+}
+
+/* when checkbox is active, show for furigana */
+#furigana-switch:checked+label ruby rt {
+    visibility: visible;
+}
+
+/* furigana hidden */
+.furihide ruby rt {
+    visibility: hidden;
 }
 
 #tts {

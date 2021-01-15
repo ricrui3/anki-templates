@@ -1,0 +1,32 @@
+<!-- RECOGNITION -->
+{{FrontSide}}
+<div class="outside"> Answer</div>
+<div class="card-back shadow">
+    <div class="back">{{Meaning}}</div>
+    {{#ExampleMeaning}}
+    <hr />
+    <div class="backopt">{{ExampleMeaning}}</div>
+    {{/ExampleMeaning}}
+    <hr />
+    <div class="backopt">
+        <a class="link" href="https://jisho.org/search/{{text:Expression}}">
+            jisho.org
+        </a>
+        <br>
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
+            aulex.org
+        </a>
+    </div>
+</div>
+<div id="tts">
+    <tts service="android" voice="ja_JP">{{kanji:Expression}}。</tts>
+    {{#Example}}
+    <tts service="android" voice="ja_JP">。。。：{{kanji:Example}}</tts>
+    {{/Example}}
+</div>
+<div id="tts">
+    {{tts ja_JP voices=Apple_Otoya:kanji:Expression}}
+    {{#Example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
+    {{/Example}}
+</div>
