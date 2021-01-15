@@ -1,13 +1,13 @@
 <!-- RECALL -->
-<div class="lesson">
-    Lesson {{Lesson Number}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+<div class="outside">Question</div>
+<div class="card-front shadow">
+    <div class="tags">{{Deck}}</div>
+    <div class="back">{{Meaning}}</div>
+    {{#ExampleMeaning}}
+    <div class="frontopt">{{ExampleMeaning}}</div>
+    {{/ExampleMeaning}}
 </div>
-<div>
-    {{Meaning}}
-</div>
-{{#ExampleMeaning}}
-<br>
-<div>
-    {{ExampleMeaning}}
-</div>
-{{/ExampleMeaning}}

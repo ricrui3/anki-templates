@@ -1,41 +1,28 @@
 <!-- RECALL -->
 {{FrontSide}}
-<hr id=answer>
-<!-- checkbox hack to display furigana on click -->
-<!-- Reading -->
-<div>
-    <label onclick="myFunction('readingInput')">
-        {{furigana:Reading}}
-    </label>
-    <input class="hide" value="{{kanji:Reading}}" id="readingInput">
-</div>
-<!-- Example -->
-{{#Example}}
-<br>
-<div>
-    <label onclick="myFunction('exampleInput')">
-        {{furigana:Example}}
-    </label>
-    <input class="hide" value="{{kanji:Example}}" id="exampleInput">
-</div>
-{{/Example}}
-<!-- Links -->
-<br>
-<div>
-    <a class="link" href="https://jisho.org/search/{{Expression}}">
-        Go to Jisho
-    </a>
-</div>
-<div>
-    <a class="link" href="https://aulex.org/ja-es/?busca={{Expression}}">
-        Go to aulex.org
-    </a>
+<div class="outside"> Answer</div>
+<div class="card-back shadow">
+    <div class="back">{{furigana:Reading}}</div>
+    {{#Example}}
+    <hr />
+    <div class="backopt">{{furigana:Example}}</div>
+    {{/Example}}
+    <hr />
+    <div class="backopt">
+        <a class="link" href="https://jisho.org/search/{{text:Expression}}">
+            jisho.org
+        </a>
+        <br>
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
+            aulex.org
+        </a>
+    </div>
 </div>
 <!-- Tts -->
 <div id="tts">
     <tts service="android" voice="ja_JP">{{kanji:Expression}}。</tts>
     {{#Example}}
-    <tts service="android" voice="ja_JP">。。。例：{{kanji:Example}}</tts>
+    <tts service="android" voice="ja_JP">。。。：{{kanji:Example}}</tts>
     {{/Example}}
 </div>
 <div id="tts">
@@ -44,12 +31,3 @@
     {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
     {{/Example}}
 </div>
-<!-- Script -->
-<script>
-function myFunction(id) {
-    var copyText = document.getElementById(id);
-    copyText.select();
-    copyText.setSelectionRange(0, 99999)
-    document.execCommand("copy");
-}
-</script>
