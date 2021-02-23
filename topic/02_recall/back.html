@@ -2,35 +2,31 @@
 {{FrontSide}}
 <div class="outside"> Answer</div>
 <div class="card-back shadow">
-    <div class="back">{{furigana:Front}}</div>
-    {{#furigana}}
+    <div class="back">{{furigana:Reading}}</div>
+    {{#Example}}
     <hr />
-    <div class="backopt">{{furigana}}</div>
-    {{/furigana}}
-    {{#example}}
-    <hr />
-    <div class="backopt">{{furigana:example}}</div>
-    {{/example}}
+    <div class="backopt">{{furigana:Example}}</div>
+    {{/Example}}
     <hr />
     <div class="backopt">
-        <a class="link" href="https://jisho.org/search/{{text:Front}}">
+        <a class="link" href="https://jisho.org/search/{{text:Expression}}">
             jisho.org
         </a>
         <br>
-        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Front}}">
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
             aulex.org
         </a>
     </div>
 </div>
 <div id="tts">
-    <tts service="android" voice="ja_JP">{{kanji:Front}}</tts>
-    {{#example}}
-    <tts service="android" voice="ja_JP">{{kanji:example}}</tts>
-    {{/example}}
+    <tts service="android" voice="ja_JP">{{kanji:Expression}}</tts>
+    {{#Example}}
+    <tts service="android" voice="ja_JP">{{kanji:Example}}</tts>
+    {{/Example}}
 </div>
 <div id="tts">
-    {{tts ja_JP voices=Apple_Otoya:kanji:Front}}
-    {{#example}}
-    {{tts ja_JP voices=Apple_Otoya:kanji:example}}
-    {{/example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Expression}}
+    {{#Example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
+    {{/Example}}
 </div>

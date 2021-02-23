@@ -66,7 +66,7 @@ hr {
 
 .front {
     font-weight: bold;
-    font-family: ume-pms3;font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Serif JP', serif;
     font-size: 50px;
 }
 
@@ -518,17 +518,6 @@ hr {
 /* Name.Variable.Magic */
 .nightMode .highlight .il {
     color: #bd93f9
-}
-
-/* Literal.Number.Integer.Long */
-
-/*---------Topic deck*/
-.furigana-hidden {
-    visibility: hidden;
-}
-
-#btnControl:checked+label {
-    visibility: visible;
 }
 
 /*---------MNNH deck*/

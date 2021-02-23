@@ -6,16 +6,13 @@
 <div class="outside">Question</div>
 <div class="card-front shadow">
     <div class="tags">{{Deck}}</div>
-    <div class="front">{{furigana:Front}}</div>
-    {{#furigana}}
-    <div class="frontopt">
-        <input type="checkbox" id="btnControl" />
-        <label for="btnControl" class='furigana-hidden'>
-            {{furigana}}
+    <div class="front furihide">
+        <input type="checkbox" id="furigana-switch" />
+        <label for="furigana-switch">
+            {{furigana:Reading}}
         </label>
     </div>
-    {{/furigana}}
-    {{#example}}
-    <div class="frontopt">{{example}}</div>
-    {{/example}}
+    {{#Example}}
+    <div class="frontopt">{{Example}}</div>
+    {{/Example}}
 </div>
