@@ -2,35 +2,45 @@
 {{FrontSide}}
 <div class="outside"> Answer</div>
 <div class="card-back shadow">
-    <div class="back">{{Back}}</div>
-    {{#Back-Spanish}}
+    {{#Reading}}
+    <div class="backopt">{{kana:Reading}}</div>
     <hr />
-    <div class="backopt">{{Back-Spanish}}</div>
-    {{/Back-Spanish}}
-    {{#exampleMeaning}}
+    {{/Reading}}
+    <div class="back">{{Meaning}}</div>
+    {{#SpanishMeaning}}
     <hr />
-    <div class="backopt">{{exampleMeaning}}</div>
-    {{/exampleMeaning}}
+    <div class="backopt">{{SpanishMeaning}}</div>
+    {{/SpanishMeaning}}
+    {{#ExampleMeaning}}
+    <hr />
+    <div class="backopt">{{ExampleMeaning}}</div>
+    {{/ExampleMeaning}}
     <hr />
     <div class="backopt">
-        <a class="link" href="https://jisho.org/search/{{text:Front}}">
+        <a class="link" href="https://jisho.org/search/{{text:Expression}}">
             jisho.org
         </a>
         <br>
-        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Front}}">
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
             aulex.org
         </a>
     </div>
 </div>
 <div id="tts">
-    <tts service="android" voice="ja_JP">{{kanji:Front}}</tts>
-    {{#example}}
-    <tts service="android" voice="ja_JP">{{kanji:example}}</tts>
-    {{/example}}
+    <tts service="android" voice="ja_JP">{{kanji:Expression}}</tts>
+    <tts service="android" voice="en_US">{{Meaning}}</tts>
+    {{#SpanishMeaning}}
+    <tts service="android" voice="es_MX">{{SpanishMeaning}}</tts>
+    {{/SpanishMeaning}}
+    {{#Example}}
+    <tts service="android" voice="ja_JP">{{kanji:Example}}</tts>
+    {{/Example}}
 </div>
 <div id="tts">
-    {{tts ja_JP voices=Apple_Otoya:kanji:Front}}
-    {{#example}}
-    {{tts ja_JP voices=Apple_Otoya:kanji:example}}
-    {{/example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Expression}}
+    {{#Example}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
+    {{/Example}}
+    {{tts en_US voices=Apple_Alex:Meaning}}
 </div>
+<!--{{tts-voices:}}-->
