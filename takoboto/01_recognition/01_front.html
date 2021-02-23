@@ -1,0 +1,34 @@
+<!-- RECOGNITION -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+<div class="outside">Question</div>
+<div class="card-front shadow">
+    <div class="tags">{{Deck}}</div>
+    <!-- Japanese word -->
+    <div id="idReading" class="front">{{Japanese}}</div>
+    <!-- Reading -->
+    {{#Reading}}
+    <div class="frontopt">
+        <input type="checkbox" id="btnControl" />
+        <label for="btnControl" class='furigana-hidden'>
+            {{Reading}}
+        </label>
+    </div>
+    {{/Reading}}
+    <!-- Note -->
+    <div id="idNote" style="visibility: hidden" class="backopt">{{Note}}</div>
+</div>
+<script>
+var note = document.getElementById("idNote").textContent
+if (note) {
+    if (note.includes("Usually written using kana alone")) {
+        document.getElementById("idReading").style.color = "yellow";
+        document.getElementById("btnControl").checked = true;
+    }
+    if (note.includes("Takes the aux. verb suru")) {
+        document.getElementById("idReading").innerHTML += ' + する';
+    }
+}
+</script>

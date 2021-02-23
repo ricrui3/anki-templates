@@ -1,0 +1,61 @@
+<!-- RECALL -->
+{{FrontSide}}
+<div class="outside"> Answer</div>
+<div class="card-back shadow">
+    <div id="idReading" class="back">{{Japanese}}</div>
+    {{#Reading}}
+    <hr />
+    <div class="backopt">{{Reading}}</div>
+    {{/Reading}}
+    {{#Sentence}}
+    <hr />
+    <div class="backopt">{{Sentence}}</div>
+    {{/Sentence}}
+    {{#SentenceMeaning}}
+    <hr />
+    <div class="backopt">{{SentenceMeaning}}</div>
+    {{/SentenceMeaning}}
+    {{#Note}}
+    <hr />
+    <div id="idNote" class="backopt">{{Note}}</div>
+    {{/Note}}
+    <hr />
+    <div class="backopt">
+        <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
+            jisho.org
+        </a>
+        <br>
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Japanese}}">
+            aulex.org
+        </a>
+        {{#Link}}
+        <br>
+        <a href="{{Link}}">
+            Open in Takoboto
+        </a>
+        {{/Link}}
+    </div>
+</div>
+<div id="tts">
+    <tts service="android" voice="ja_JP">{{kanji:Japanese}}</tts>
+    {{#Sentence}}
+    <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
+    {{/Sentence}}
+</div>
+<div id="tts">
+    {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
+    {{#Sentence}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
+    {{/Sentence}}
+</div>
+<script>
+var note = document.getElementById("idNote").textContent
+if (note) {
+    if (note.includes("Usually written using kana alone")) {
+        document.getElementById("idReading").style.color = "yellow";
+    }
+    if (note.includes("Takes the aux. verb suru")) {
+        document.getElementById("idReading").innerHTML += ' + する';
+    }
+}
+</script>

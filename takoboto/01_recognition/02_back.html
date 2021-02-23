@@ -1,0 +1,50 @@
+<!-- RECOGNITION -->
+{{FrontSide}}
+<div class="outside"> Answer</div>
+<div class="card-back shadow">
+    {{#Reading}}
+    <div class="backopt">{{Reading}}</div>
+    <hr />
+    {{/Reading}}
+    <div class="back">{{Meaning}}</div>
+    {{#Sentence}}
+    <hr />
+    <div class="backopt">{{Sentence}}</div>
+    {{/Sentence}}
+    {{#SentenceMeaning}}
+    <hr />
+    <div class="backopt">{{SentenceMeaning}}</div>
+    {{/SentenceMeaning}}
+    {{#Note}}
+    <hr />
+    <div class="backopt">{{Note}}</div>
+    {{/Note}}
+    <hr />
+    <div class="backopt">
+        <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
+            jisho.org
+        </a>
+        <br>
+        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Japanese}}">
+            aulex.org
+        </a>
+        {{#Link}}
+        <br>
+        <a href="{{Link}}">
+            Open in Takoboto
+        </a>
+        {{/Link}}
+    </div>
+</div>
+<div id="tts">
+    <tts service="android" voice="ja_JP">{{kanji:Japanese}}</tts>
+    {{#Sentence}}
+    <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
+    {{/Sentence}}
+</div>
+<div id="tts">
+    {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
+    {{#Sentence}}
+    {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
+    {{/Sentence}}
+</div>
