@@ -19,6 +19,10 @@
     </div>
 </div>
 <div id="tts">
+    <tts service="android" voice="en_US">{{Meaning}}</tts>
+    {{#SpanishMeaning}}
+    <tts service="android" voice="es_MX">{{SpanishMeaning}}</tts>
+    {{/SpanishMeaning}}
     <tts service="android" voice="ja_JP">{{kanji:Expression}}</tts>
     {{#Example}}
     <tts service="android" voice="ja_JP">{{kanji:Example}}</tts>
