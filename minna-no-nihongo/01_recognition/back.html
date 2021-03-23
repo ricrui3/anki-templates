@@ -2,6 +2,12 @@
 {{FrontSide}}
 <div class="outside"> Answer</div>
 <div class="card-back shadow">
+    <div class="backopt">{{kana:Reading}}</div>
+    {{#Significado}}
+    <hr />
+    <div class="back">{{Significado}}</div>
+    {{/Significado}}
+    <hr />
     <div class="back">{{Meaning}}</div>
     {{#ExampleMeaning}}
     <hr />
@@ -16,16 +22,36 @@
         <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
             aulex.org
         </a>
+        <br>
+        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Expression}}">
+            google images
+        </a>
     </div>
 </div>
 <div id="tts">
     <tts service="android" voice="ja_JP">{{kanji:Expression}}。</tts>
+    {{#Significado}}
+    <tts service="android" voice="en_US">
+        {{kanji:Significado}}。
+    </tts>
+    {{/Significado}}
+    {{#Meaning}}
+    <tts service="android" voice="es_MX">
+        {{kanji:Meaning}}。
+    </tts>
+    {{/Meaning}}
     {{#Example}}
     <tts service="android" voice="ja_JP">。。。：{{kanji:Example}}</tts>
     {{/Example}}
 </div>
 <div id="tts">
     {{tts ja_JP voices=Apple_Otoya:kanji:Expression}}
+    {{#Significado}}
+    {{tts en_US voices=Apple_Alex:kanji:Significado}}
+    {{/Significado}}
+    {{#Meaning}}
+    {{tts en_US voices=Apple_Alex:kanji:Meaning}}
+    {{/Meaning}}
     {{#Example}}
     {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
     {{/Example}}

@@ -7,6 +7,10 @@
     <hr />
     <div class="backopt">{{furigana:Example}}</div>
     {{/Example}}
+    {{#ExampleMeaning}}
+    <hr />
+    <div class="backopt">{{ExampleMeaning}}</div>
+    {{/ExampleMeaning}}
     <hr />
     <div class="backopt">
         <a class="link" href="https://jisho.org/search/{{text:Expression}}">
@@ -16,18 +20,43 @@
         <a class="link" href="https://aulex.org/ja-es/?busca={{text:Expression}}">
             aulex.org
         </a>
+        <br>
+        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Expression}}">
+            google images
+        </a>
     </div>
 </div>
 <!-- Tts -->
 <div id="tts">
-    <tts service="android" voice="ja_JP">{{kanji:Expression}}。</tts>
+    {{#Significado}}
+    <tts service="android" voice="en_US">
+        {{kanji:Significado}}。
+    </tts>
+    {{/Significado}}
+    {{#Meaning}}
+    <tts service="android" voice="es_MX">
+        {{kanji:Meaning}}。
+    </tts>
+    {{/Meaning}}
+    <tts service="android" voice="ja_JP">
+        {{kanji:Expression}}。
+    </tts>
     {{#Example}}
-    <tts service="android" voice="ja_JP">。。。：{{kanji:Example}}</tts>
+    <tts service="android" voice="ja_JP">
+        。。。：{{kanji:Example}}
+    </tts>
     {{/Example}}
 </div>
 <div id="tts">
+    {{#Significado}}
+    {{tts en_US voices=Apple_Alex:kanji:Significado}}
+    {{/Significado}}
+    {{#Meaning}}
+    {{tts en_US voices=Apple_Alex:kanji:Meaning}}
+    {{/Meaning}}
     {{tts ja_JP voices=Apple_Otoya:kanji:Expression}}
     {{#Example}}
     {{tts ja_JP voices=Apple_Otoya:kanji:Example}}
     {{/Example}}
 </div>
+<!--{{tts-voices:}}-->
