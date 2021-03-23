@@ -6,7 +6,7 @@
     <div class="backopt">{{Reading}}</div>
     <hr />
     {{/Reading}}
-    <div class="back">{{Meaning}}</div>
+    <div id="idMeaning" class="back">{{Meaning}}</div>
     {{#Sentence}}
     <hr />
     <div class="backopt">{{Sentence}}</div>
@@ -28,6 +28,9 @@
         <a class="link" href="https://aulex.org/ja-es/?busca={{text:Japanese}}">
             aulex.org
         </a>
+        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
+            google images
+        </a>
         {{#Link}}
         <br>
         <a href="{{Link}}">
@@ -41,6 +44,12 @@
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
+    <tts service="android" voice="es_MX">
+        <div id="idMeaningSpanish"></div>
+    </tts>
+    <tts service="android" voice="en_US">
+        <div id="idMeaningEnglish"></div>
+    </tts>
 </div>
 <div id="tts">
     {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
@@ -48,3 +57,20 @@
     {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
     {{/Sentence}}
 </div>
+<script>
+var espStart = "ES:"
+var engStart = "EN:"
+var reEsp = `${espStart}.*`
+var reEng = `${engStart}.*`
+var note = document.getElementById("idMeaning").innerText
+if (note) {
+    var espMeaning = `${note.match(reEsp)}`.replace(espStart, "")
+    if (espMeaning) {
+        document.getElementById("idMeaningSpanish").textContent = espMeaning
+    }
+    var engMeaning = `${note.match(reEng)}`.replace(engStart, "")
+    if (engMeaning) {
+        document.getElementById("idMeaningEnglish").textContent = engMeaning
+    }
+}
+</script>

@@ -28,6 +28,10 @@
         <a class="link" href="https://aulex.org/ja-es/?busca={{text:Japanese}}">
             aulex.org
         </a>
+        <br>
+        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
+            google images
+        </a>
         {{#Link}}
         <br>
         <a href="{{Link}}">
@@ -36,11 +40,17 @@
         {{/Link}}
     </div>
 </div>
-<div id="tts">
+<div id="tt">
     <tts service="android" voice="ja_JP">{{kanji:Japanese}}</tts>
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
+    <tts service="android" voice="es_MX">
+        <div id="idMeaningSpanish"></div>
+    </tts>
+    <tts service="android" voice="en_US">
+        <div id="idMeaningEnglish"></div>
+    </tts>
 </div>
 <div id="tts">
     {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
@@ -56,6 +66,22 @@ if (note) {
     }
     if (note.includes("Takes the aux. verb suru")) {
         document.getElementById("idReading").innerHTML += ' + する';
+    }
+}
+
+var espStart = "ES:"
+var engStart = "EN:"
+var reEsp = /ES:.*/
+var reEng = `${engStart}.*`
+var note = document.getElementById("idMeaning").innerText
+if (note) {
+    var espMeaning = `${note.match(reEsp)}`.replace(espStart, "")
+    if (espMeaning) {
+        document.getElementById("idMeaningSpanish").textContent = espMeaning
+    }
+    var engMeaning = `${note.match(reEng)}`.replace(engStart, "")
+    if (engMeaning) {
+        document.getElementById("idMeaningEnglish").textContent = engMeaning
     }
 }
 </script>
