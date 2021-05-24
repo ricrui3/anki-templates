@@ -8,6 +8,7 @@
     <div class="tags">{{Deck}}</div>
     <!-- Japanese word -->
     <div id="idReading" class="front">{{Japanese}}</div>
+    <div id="idReading">{{Japanese}}</div>
     <!-- Reading -->
     {{#Reading}}
     <div class="frontopt">
@@ -18,7 +19,8 @@
     </div>
     {{/Reading}}
     <!-- Note -->
-    <div id="idNote" class="hidden">{{Note}}</div>
+    <hr>
+    <div id="idNote" class="tags">{{Note}}</div>
 </div>
 <script>
 var note = document.getElementById("idNote").textContent
