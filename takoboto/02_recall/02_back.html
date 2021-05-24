@@ -22,15 +22,15 @@
     <hr />
     <div class="backopt">
         <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
-            jisho.org
+            Jisho
         </a>
         <br>
-        <a class="link" href="https://aulex.org/ja-es/?busca={{text:Japanese}}">
-            aulex.org
+        <a class="link" href="http://takoboto.jp/?q={{text:Japanese}}&lang=spa">
+            Takoboto Web
         </a>
         <br>
         <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
-            google images
+            Google images
         </a>
         {{#Link}}
         <br>
@@ -45,7 +45,6 @@
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
-    <tts service="android" voice="es_MX">{{Significado}}</tts>
     <tts service="android" voice="en_US">{{Meaning}}</tts>
 </div>
 <div id="tts">
