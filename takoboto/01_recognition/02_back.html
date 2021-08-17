@@ -19,22 +19,30 @@
     <hr />
     <div class="backopt">{{SentenceMeaning}}</div>
     {{/SentenceMeaning}}
-    {{#Note}}
+    {{#Image}}
     <hr />
-    <div class="backopt">{{Note}}</div>
-    {{/Note}}
+    <div class="backopt">{{Image}}</div>
+    {{/Image}}
     <hr />
     <div class="backopt">
         <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
             Jisho
         </a>
         <br>
+        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
+            Google images
+        </a>
+        <br>
+        <a class="link" href="https://www.irasutoya.com/search?q={{text:Japanese}}">
+            Irasutoya
+        </a>
+        <br>
         <a class="link" href="http://takoboto.jp/?q={{text:Japanese}}&lang=spa">
             Takoboto Web
         </a>
         <br>
-        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
-            Google images
+        <a class="link" href="https://tatoeba.org/en/sentences/search?from=jpn&query={{text:Japanese}}">
+            Tatoeba
         </a>
         {{#Link}}
         <br>
@@ -44,15 +52,24 @@
         {{/Link}}
     </div>
 </div>
+<!-- Native Speaker -->
+{{#Audio}}
+{{Audio}}
+{{/Audio}}
+<!-- TTS -->
+{{^Audio}}
 <div id="tts">
     <tts service="android" voice="ja_JP">{{kanji:Japanese}}</tts>
+    {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
+</div>
+{{/Audio}}
+<div id="tts">
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
     <tts service="android" voice="en_US">{{Meaning}}</tts>
 </div>
 <div id="tts">
-    {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
     {{#Sentence}}
     {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
     {{/Sentence}}
