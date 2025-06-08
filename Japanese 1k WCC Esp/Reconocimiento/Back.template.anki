@@ -122,74 +122,85 @@
   <hr>
 
 
-  <!-- Footer -->
-  <footer>
-		
+  <!-- Enlaces de recursos -->
+  <details class="resources-section">
+    <summary>🔗 Recursos externos</summary>
+    
     {{#SentKanji}}
-    <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:SentKanji}}" title="Traducir oración en DeepL">
-      Traducir</a>
-
-    <a href="https://jpdb.io/search?q={{text:kanji:SentKanji}}&lang=spanish#a" title="Detalles de la oración en JPDB">
-      JPDB</a>
-
-    <a href="https://takoboto.jp/?q={{text:kanji:SentKanji}}&lang=spa" title="Detalles de la oración en Takoboto Web">
-      🐙Takoboto web</a>
-
-	  <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:SentKanji}};end" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
-      🐙Takoboto ANDROID</a>
-
+    <div class="resource-group">
+      <h4>📝 Oración</h4>
+      <div class="link-grid">
+        <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:SentKanji}}" title="Traducir oración en DeepL" class="link-btn translate">
+          🌐 DeepL</a>
+        <a href="https://jpdb.io/search?q={{text:kanji:SentKanji}}&lang=spanish#a" title="Detalles de la oración en JPDB" class="link-btn database">
+          📊 JPDB</a>
+        <a href="https://takoboto.jp/?q={{text:kanji:SentKanji}}&lang=spa" title="Detalles de la oración en Takoboto Web" class="link-btn dictionary">
+          🐙 Takoboto</a>
+        <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:SentKanji}};end" title="Takoboto Android" class="link-btn mobile">
+          📱 Takoboto</a>
+      </div>
+    </div>
     {{/SentKanji}}
-  </footer>
-
-  <!-- ---------------------------------------------------------------- -->
-
-  <br>
-
-  <footer>
 
     {{#VocabKanji}}
+    <div class="resource-group">
+      <h4>📚 Vocabulario</h4>
+      
+      <div class="resource-subgroup">
+        <h5>Diccionarios</h5>
+        <div class="link-grid">
+          <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Takoboto Web" class="link-btn dictionary">
+            🐙 Takoboto</a>
+          <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji" title="Kanji en Jisho" class="link-btn dictionary">
+            📖 Jisho</a>
+          <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}" title="Sinónimos en Weblio" class="link-btn dictionary">
+            📝 Weblio</a>
+        </div>
+      </div>
 
-    <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}"
-      title="Wanikani de {{kanji:text:VocabKanji}} en japonés">
-      🐊🦀Wanikani</a>
+      <div class="resource-subgroup">
+        <h5>Aprendizaje</h5>
+        <div class="link-grid">
+          <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}" title="WaniKani" class="link-btn learning">
+            🐊 WaniKani</a>
+          <a href="kanjistudy://search?q={{text:VocabKanji}}" title="KanjiStudy búsqueda" class="link-btn mobile">
+            🀄 KSA</a>
+          <a href="kanjistudy://draw?kanji={{text:VocabKanji}}" title="KanjiStudy dibujo" class="link-btn mobile">
+            🖌️ Dibujo</a>
+          <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html" title="Conjugaciones de verbos" class="link-btn tools">
+            🔄 Verbos</a>
+        </div>
+      </div>
 
-	  <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
-      🐙Takoboto web</a>
+      <div class="resource-subgroup">
+        <h5>Contexto</h5>
+        <div class="link-grid">
+          <a href="https://sentencesearch.neocities.org/#{{text:kanji:VocabKanji}}" title="Oraciones de ejemplo" class="link-btn database">
+            💬 Oraciones</a>
+          <a href="https://www.irasutoya.com/search?q={{kanji:text:VocabKanji}}" title="Imágenes en Irasutoya" class="link-btn images">
+            🎨 Irasutoya</a>
+          <a href="https://duckduckgo.com/?q={{kanji:text:VocabKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp" title="Búsqueda de imágenes" class="link-btn images">
+            🖼️ Imágenes</a>
+        </div>
+      </div>
 
-	  <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
-      🐙Takoboto ANDROID</a>
-
-	  <a href="kanjistudy://search?q={{text:VocabKanji}}">🀄KSA</a>
-
-	  <a href="kanjistudy://draw?kanji={{text:VocabKanji}}">🖌️KSA</a>
-
-    <a href="https://www.irasutoya.com/search?q={{kanji:text:VocabKanji}}"
-      title="Imágenes de {{text:kanji:VocabKanji}} en Irasutoya">
-      Irasutoya</a>
-
-    <a href="https://duckduckgo.com/?q={{kanji:text:VocabKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp"
-      title="Imágenes de {{text:kanji:VocabKanji}} en DuckDuckGo">
-      Imágenes</a>
-
-    <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji"
-      title="Kanji de {{kanji:text:VocabKanji}} en Jisho">
-      Kanji</a>
-
-    <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html"
-      title="Conjugaciones de {{kanji:text:VocabKanji}} en Reverso (sólo para verbos)">
-      Verbos</a>
-
-    <a href="https://sentencesearch.neocities.org/#{{text:kanji:VocabKanji}}"
-      title="Oraciones con {{text:kanji:VocabKanji}}">
-      Oraciones</a>
-
-    <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}"
-      title="Sinónimos de {{kanji:text:VocabKanji}} en japonés">
-      Weblio</a>
-
+      <div class="resource-subgroup mobile-only">
+        <h5>Apps móviles</h5>
+        <div class="link-grid">
+          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Takoboto Android" class="link-btn mobile">
+            📱 Takoboto</a>
+        </div>
+      </div>
+    </div>
     {{/VocabKanji}}
+    
+  </details>
 
-  </footer>
+  <!-- Botón flotante para alternar furigana -->
+  <button class="furigana-toggle-btn" onclick="toggleAllFurigana()" title="Ocultar/Mostrar todo el furigana">
+    👁️
+  </button>
+
 </div> <!-- /wrap -->
 
 
@@ -351,4 +362,97 @@
   tweakRevealEng();
   tweakRevealEsp();
   notesDiv();
+  initializeFuriganaToggle();
+
+  /* Funciones para ocultar/mostrar furigana */
+  function initializeFuriganaToggle() {
+    // Hacer que las palabras y oraciones japonesas sean clickeables
+    const japaneseElements = document.querySelectorAll('.jpword, .jpsentence, .vocab .reading, .definition-1, .definition-2');
+    
+    japaneseElements.forEach(element => {
+      // Solo agregar funcionalidad si el elemento contiene furigana
+      if (element.querySelectorAll('ruby').length > 0) {
+        element.classList.add('furigana-clickable');
+        element.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleFuriganaInElement(this);
+        });
+      }
+    });
+  }
+
+  function toggleFuriganaInElement(element) {
+    element.classList.toggle('furigana-hidden');
+    
+    // Cambiar el icono del elemento para indicar el estado
+    const hasHiddenFurigana = element.classList.contains('furigana-hidden');
+    
+    // Feedback visual temporal
+    const originalBg = element.style.backgroundColor;
+    element.style.backgroundColor = hasHiddenFurigana ? 'rgba(255, 0, 0, 0.1)' : 'rgba(0, 255, 0, 0.1)';
+    setTimeout(() => {
+      element.style.backgroundColor = originalBg;
+    }, 200);
+  }
+
+  function toggleAllFurigana() {
+    const button = document.querySelector('.furigana-toggle-btn');
+    const clickableElements = document.querySelectorAll('.furigana-clickable');
+    
+    // Determinar si la mayoría de elementos tienen furigana oculto
+    const hiddenCount = document.querySelectorAll('.furigana-hidden').length;
+    const shouldShow = hiddenCount > clickableElements.length / 2;
+    
+    clickableElements.forEach(element => {
+      if (shouldShow) {
+        element.classList.remove('furigana-hidden');
+      } else {
+        element.classList.add('furigana-hidden');
+      }
+    });
+    
+    // Cambiar el icono del botón
+    button.innerHTML = shouldShow ? '👁️' : '🙈';
+    button.title = shouldShow ? 'Ocultar todo el furigana' : 'Mostrar todo el furigana';
+    
+    // Feedback visual del botón
+    button.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+      button.style.transform = '';
+    }, 150);
+  }
+
+  /* Atajos de teclado */
+  document.addEventListener('keydown', function(e) {
+    // F para alternar todo el furigana
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault();
+      toggleAllFurigana();
+    }
+    // H para ocultar todo el furigana
+    else if (e.key === 'h' || e.key === 'H') {
+      e.preventDefault();
+      const clickableElements = document.querySelectorAll('.furigana-clickable');
+      clickableElements.forEach(element => {
+        element.classList.add('furigana-hidden');
+      });
+      const button = document.querySelector('.furigana-toggle-btn');
+      button.innerHTML = '🙈';
+      button.title = 'Mostrar todo el furigana';
+    }
+    // S para mostrar todo el furigana
+    else if (e.key === 's' || e.key === 'S') {
+      e.preventDefault();
+      const clickableElements = document.querySelectorAll('.furigana-clickable');
+      clickableElements.forEach(element => {
+        element.classList.remove('furigana-hidden');
+      });
+      const button = document.querySelector('.furigana-toggle-btn');
+      button.innerHTML = '👁️';
+      button.title = 'Ocultar todo el furigana';
+    }
+  });
+
+
 </script>
