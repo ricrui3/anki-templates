@@ -1,0 +1,276 @@
+<!--
+mpvacious JP1K WCC Esp cards, version 07
+Sat Jan 27 13:38:23 2024
+-->
+
+<div class="wrap">
+    <header>
+        {{#Tags}}
+        <div class="tags">{{Tags}}</div>
+        {{/Tags}}
+    </header>
+
+    <div id="question">
+        <div class="sent-center">
+
+            {{#VocabKanji}}
+
+            <div class="steps uno">1. ¿Cómo se lee?</div>
+            <div class="steps dos">2. ¿Qué significa?</div>
+            <div class="steps tres">3. Califícate sólo el significado.</div>
+
+            <!--Vocab-->
+            <div class="jpword wcc" lang="ja">
+                <div class="background">
+                    {{furigana:VocabFurigana}}{{^VocabFurigana}}{{furigana:VocabKanji}}{{/VocabFurigana}}</div>
+                <div class="overlay">
+                    {{furigana:VocabFurigana}}{{^VocabFurigana}}{{furigana:VocabKanji}}{{/VocabFurigana}}
+                </div>
+            </div>
+
+
+            {{/VocabKanji}}
+
+            <!-- Oración de contexto complemento a Vocab -->
+            {{#VocabKanji}}
+            {{#SentKanji}}
+
+            <!-- Botón
+            <input class="hide-btn" type="checkbox" id="hide-btn" />
+            <label class="hide-label" for="hide-btn">Reveal context</label> -->
+
+            <div class="jpsentence wcc" lang="ja">
+                <div class="background">
+                    {{furigana:SentFurigana}}{{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}</div>
+                <div class="overlay">
+                    {{furigana:SentFurigana}}{{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}</div>
+            </div>
+
+            {{/SentKanji}}
+            {{/VocabKanji}}
+
+            <!-- Sólo oración + Sin vocabulario-->
+            {{^VocabKanji}}
+            <div class="jpsentence" lang="ja">
+                <div class="background">
+                    {{furigana:SentFurigana}}{{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}</div>
+                <div class="overlay">
+                    {{furigana:SentFurigana}}{{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}</div>
+            </div>
+            {{/VocabKanji}}
+        </div>
+    </div>
+
+    <!-- Botón de furigana
+    <div class="sent-center">
+        <label id="toggleFurigana-btn" class="hide-label" onclick="toggleFurigana();">Mostrar<br> Furigana</label>
+    </div>　-->
+
+    <!-- Imagen -->
+    {{#Image}}
+    <details open class="images-on-front images-details">
+        <summary>Imagen</summary>
+        <div class="images">{{Image}}</div>
+    </details>
+    {{/Image}}
+
+    <!-- Pista -->
+    <div class="sent-center">
+        <div class="fronthint">{{edit:Hint}}</div>
+    </div>
+
+    <!-- Imagen
+    {{#Image}}<div class="images on-front">{{Image}}</div>{{/Image}} -->
+
+</div> <!-- /wrap -->
+
+<div style="display:none;">
+    <div id="pitchnum_hidden">{{VocabPitchNum}}</div>
+    <div id="kanaword_hidden">{{kana:VocabFurigana}}</div>
+</div>
+
+<script>
+    /* Paints the question word according to its Pitch Accent number.
+     * blue for 平板
+     * red for 頭高
+     * orange for 中高
+     * green for 尾高
+     */
+    function markPitch() {
+        let pitchNumber = document.getElementById("pitchnum_hidden");
+        if (pitchNumber === null) {
+            return;
+        } else {
+            pitchNumber = pitchNumber.innerHTML.match(/\d/);
+        }
+        if (pitchNumber === null) {
+            return;
+        } else {
+            pitchNumber = Number(pitchNumber);
+        }
+
+        /* Then decide what color to use and change font color accordingly. */
+        if (pitchNumber == 0) {
+            // use blue for 平板
+            paintTargetWord("#3366CC");
+        } else if (pitchNumber == 1) {
+            // use red for 頭高
+            paintTargetWord("red");
+        } else if (pitchNumber > 1) {
+            if (odaka(pitchNumber)) {
+                // use green for 尾高
+                paintTargetWord("green");
+            } else {
+                // use orange for 中高
+                paintTargetWord("#ff6207");
+            }
+        }
+    }
+
+    function paintTargetWord(color) {
+        for (const word of document.querySelectorAll(".jpsentence b, .jpsentence strong, .jpword")) {
+            word.style.color = color;
+        }
+    }
+
+    function odaka(pitch_num) {
+        // word is odaka if number of moras is equal to pitch accent position
+        const vocab_kana = document.getElementById("kanaword_hidden");
+        if (vocab_kana === null) {
+            return false;
+        }
+        // small っ is one mora; ゃゅょ are parts of single mora
+        const n_moras = vocab_kana.innerHTML.replace(/[ャュョゃゅょ]/g, "").length;
+        if (n_moras == pitch_num) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /* Splits tags into separate divs */
+    function splitTagDiv() {
+        const header = document.querySelector("header");
+        if (!header) return;
+        const split = `{{Tags}}`.split(" ");
+        const dont_show = ['imageonfront', 'visibleDefs', 'mpv', 'subs2srs'];
+
+        header.innerHTML = "";
+
+        for (const tag of split) {
+            if (tag.length < 1 || dont_show.includes(tag)) continue;
+            if (tag.length < 1) continue;
+            const tag_elem = document.createElement("div");
+            tag_elem.className = "tags";
+            tag_elem.innerHTML = tag;
+            header.appendChild(tag_elem);
+        }
+    }
+
+    /* Set image on front
+    function setImageOnFront() {
+        const tags = `{{Tags}}`.split(" ");
+        const front_img = document.querySelector("div.images.on-front");
+        const triggers = front_img && tags.includes("imageonfront") || front_img && tags.includes("mpv") || front_img && tags.includes("subs2srs") || front_img && tags.includes("Youtube");
+        if (triggers) {
+            front_img.classList.toggle("on-front");
+        }
+    } */
+
+    /* Show tag when Note field is present */
+    function notesDiv() {
+        const header = document.querySelector("header");
+        if (!header) return;
+        const notesSign = `{{#Notes}}Notas{{/Notes}}`.split(" ");
+
+        for (const tag of notesSign) {
+            if (tag.length < 1) continue;
+            const notesDiv = document.createElement("div");
+            notesDiv.className = "tags2";
+            notesDiv.innerHTML = notesSign;
+            header.append(notesDiv);
+        }
+    }
+
+    /* Press "P" to reveal furigana for all words */
+    function toggleFurigana() {
+        for (const element of document.querySelectorAll('#question ruby rt')) {
+            element.style.visibility = !element.style.visibility ? "visible" : "";
+        }
+    }
+
+    var P_KEY = 80;
+    document.addEventListener('keydown', (event) => {
+        if (event.keyCode === P_KEY) {
+            toggleFurigana()
+        }
+    });
+
+    /* Multiple furigana readings */
+    function formatNewRuby(kanji, readings) {
+        if (readings.length > 1) {
+            return `<ruby>${formatNewRuby(kanji, readings.slice(0, -1))}</ruby><rt>${readings.slice(-1)}</rt>`
+        } else {
+            return `<rb>${kanji}</rb><rt>${readings.join('')}</rt>`
+        }
+    }
+
+    function reformatMultiFurigana() {
+        const separators = /[\s;,.、・。]+/iu;
+        const max_inline = 2;
+        document.querySelectorAll("ruby:not(ruby ruby)").forEach(ruby => {
+            try {
+                const kanji = (ruby.querySelector("rb") || ruby.firstChild).textContent.trim();
+                const readings = ruby.querySelector("rt").textContent
+                    .split(separators)
+                    .map(str => str.trim())
+                    .filter(str => str.length);
+
+                if (readings.length > 1) {
+                    ruby.innerHTML = formatNewRuby(kanji, readings.slice(0, max_inline));
+                }
+                if (readings.length > max_inline) {
+                    const sequence = readings.map(reading => `<span class="tooltip-reading">${reading}</span>`).join('');
+                    const wrapper = document.createElement("span");
+                    wrapper.classList.add("tooltip");
+                    wrapper.innerHTML += `<span class="tooltip-text">${sequence}</span>`;
+                    ruby.replaceWith(wrapper);
+                    wrapper.appendChild(ruby);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        })
+    }
+
+    /* If a card has the "imageonfront" tag set, show images on the front side. */
+    function setVisibleImageOnFront() {
+        const imgtag = ["imageonfront","mpv","subs2srs","Youtube"];
+        if (`{{Tags}}`.split(" ").some(tag => imgtag.includes(tag))) {
+            for (const frontImg of document.querySelectorAll(".images-on-front")) {
+                frontImg.setAttribute("visible", true);
+            }
+        }
+    }
+
+    /* Hide images on mobile devices.
+    function toggleImageDetails() {
+        for (const detailsElement of document.querySelectorAll(".images-details")) {
+            detailsElement.toggleAttribute("open", !isMobile());
+        }
+    }
+
+    function isMobile() {
+        return document
+            .getElementsByTagName("html")[0]
+            .classList
+            .contains("mobile");
+    } */
+
+    markPitch();
+    reformatMultiFurigana();
+    splitTagDiv();
+    notesDiv();
+    setVisibleImageOnFront();
+    toggleImageDetails();
+</script>

@@ -1,0 +1,354 @@
+<div class="wrap">
+  <div class="fside">{{FrontSide}}</div>
+
+  <div class="sent-center">
+
+    <!-- Traducciones -->
+    <div class="translation">
+      {{#SentEsp}}
+      <div class="essentence" lang="es">
+        {{edit:SentEsp}}
+      </div>
+      {{/SentEsp}}
+      {{#SentEng}}
+      <div class="ensentence" lang="en">
+        {{edit:SentEng}}
+      </div>
+      {{/SentEng}}
+    </div>
+  </div>
+
+  <!-- Audios y acentos -->
+  <section class="headword_section">
+    <div class="vocab sent-center">
+      <span id="vocab-audio">{{VocabAudio}}</span>
+      <span id="sent-audio">{{SentAudio}}</span>
+      <div class="reading" id="pitchpattern">
+        {{VocabPitchPattern}}
+        {{^VocabPitchPattern}}
+        {{text:kana:VocabFurigana}}
+        {{/VocabPitchPattern}}
+      </div>
+
+      {{#VocabPitchNum}}
+      <span class="tags" id="pitchnum">{{text:VocabPitchNum}}</span>
+      {{/VocabPitchNum}}
+      {{#VocabKanji}}
+      <div class="target_word">{{text:kanji:VocabKanji}}</div>
+      {{/VocabKanji}}
+    </div>
+
+    <!-- Definitions -->
+    <div class="definitions">
+      {{#VocabDefJap}}
+      <div class="definition-1">{{edit:furigana:VocabDefJap}}</div>
+
+      {{#VocabDefEsp}}
+      <div class="definition-2">{{edit:furigana:VocabDefEsp}}</div>
+      {{/VocabDefEsp}}
+      {{^VocabDefEsp}}
+      <div class="definition-2" style="margin: 0px;">{{edit:furigana:VocabDefEsp}}</div>
+      {{/VocabDefEsp}}
+
+      {{#VocabDef}}
+      <div class="definition-2">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+      {{^VocabDef}}
+      <div class="definition-2" style="margin: 0px;">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+
+      {{/VocabDefJap}}
+
+      {{^VocabDefJap}}
+      <div class="definition-2" style="margin: 0px;">{{edit:furigana:VocabDefJap}}</div>
+
+      {{#VocabDefEsp}}
+      <div class="definition-1" style="margin: 0px;">{{edit:furigana:VocabDefEsp}}</div>
+
+      {{#VocabDef}}
+      <div class="definition-2" style="font-size: 20px; margin: 12px 0 0;">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+      {{^VocabDef}}
+      <div class="definition-2">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+
+      {{/VocabDefEsp}}
+
+
+      {{^VocabDefEsp}}
+      <div class="definition-2" style="margin: 0px;">{{edit:furigana:VocabDefEsp}}</div>
+
+      {{#VocabDef}}
+      <div class="definition-1">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+      {{^VocabDef}}
+      <div class="definition-2" style="margin: 0px;">{{edit:furigana:VocabDef}}</div>
+      {{/VocabDef}}
+
+      {{/VocabDefEsp}}
+
+      {{/VocabDefJap}}
+    </div>
+  </section>
+
+  <!-- Notas -->
+  {{#Notes}}
+  <details open class="notes">
+    <summary>Notas</summary>
+    <div>{{edit:furigana:Notes}}</div>
+  </details>
+  {{/Notes}}
+
+  {{^Notes}}
+  <div class="notes" style="margin: -6px 0;">
+    {{edit:Notes}}
+  </div>
+  {{/Notes}}
+
+  <!-- Imagen -->
+  {{#Image}}
+  <section class="headword_section">
+    <div class="images">
+      {{Image}}
+    </div>
+  </section>
+  {{/Image}}
+
+  <!-- Fuente -->
+  <div class="source">
+    {{edit:Source}}
+  </div>
+
+  <hr>
+
+
+  <!-- Footer -->
+  <footer>
+		
+    {{#SentKanji}}
+    <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:SentKanji}}" title="Traducir oración en DeepL">
+      Traducir</a>
+
+    <a href="https://jpdb.io/search?q={{text:kanji:SentKanji}}&lang=spanish#a" title="Detalles de la oración en JPDB">
+      JPDB</a>
+
+    <a href="https://takoboto.jp/?q={{text:kanji:SentKanji}}&lang=spa" title="Detalles de la oración en Takoboto Web">
+      🐙Takoboto web</a>
+
+	  <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:SentKanji}};end" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
+      🐙Takoboto ANDROID</a>
+
+    {{/SentKanji}}
+  </footer>
+
+  <!-- ---------------------------------------------------------------- -->
+
+  <br>
+
+  <footer>
+
+    {{#VocabKanji}}
+
+    <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}"
+      title="Wanikani de {{kanji:text:VocabKanji}} en japonés">
+      🐊🦀Wanikani</a>
+
+	  <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
+      🐙Takoboto web</a>
+
+	  <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Detalles de {{text:kanji:VocabKanji}} en Takoboto Web">
+      🐙Takoboto ANDROID</a>
+
+	  <a href="kanjistudy://search?q={{text:VocabKanji}}">🀄KSA</a>
+
+	  <a href="kanjistudy://draw?kanji={{text:VocabKanji}}">🖌️KSA</a>
+
+    <a href="https://www.irasutoya.com/search?q={{kanji:text:VocabKanji}}"
+      title="Imágenes de {{text:kanji:VocabKanji}} en Irasutoya">
+      Irasutoya</a>
+
+    <a href="https://duckduckgo.com/?q={{kanji:text:VocabKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp"
+      title="Imágenes de {{text:kanji:VocabKanji}} en DuckDuckGo">
+      Imágenes</a>
+
+    <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji"
+      title="Kanji de {{kanji:text:VocabKanji}} en Jisho">
+      Kanji</a>
+
+    <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html"
+      title="Conjugaciones de {{kanji:text:VocabKanji}} en Reverso (sólo para verbos)">
+      Verbos</a>
+
+    <a href="https://sentencesearch.neocities.org/#{{text:kanji:VocabKanji}}"
+      title="Oraciones con {{text:kanji:VocabKanji}}">
+      Oraciones</a>
+
+    <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}"
+      title="Sinónimos de {{kanji:text:VocabKanji}} en japonés">
+      Weblio</a>
+
+    {{/VocabKanji}}
+
+  </footer>
+</div> <!-- /wrap -->
+
+
+<!-- Mark pitch -->
+<div style="display:none;">
+  <div id="pitchnum_hidden">{{VocabPitchNum}}</div>
+  <div id="kanaword_hidden">{{kana:VocabFurigana}}</div>
+</div>
+
+<!-- Scripts -->
+<script>
+  /* Paints the question word according to its Pitch Accent number.
+   * blue for 平板
+   * red for 頭高
+   * orange for 中高
+   * green for 尾高
+   */
+  function markPitch() {
+    let pitchNumber = document.getElementById("pitchnum_hidden");
+    if (pitchNumber === null) {
+      return;
+    } else {
+      pitchNumber = pitchNumber.innerHTML.match(/\d/);
+    }
+    if (pitchNumber === null) {
+      return;
+    } else {
+      pitchNumber = Number(pitchNumber);
+    }
+
+    /* Then decide what color to use and change font color accordingly. */
+    if (pitchNumber == 0) {
+      // use blue for 平板
+      paintTargetWord("#3366CC");
+    } else if (pitchNumber == 1) {
+      // use red for 頭高
+      paintTargetWord("red");
+    } else if (pitchNumber > 1) {
+      if (odaka(pitchNumber)) {
+        // use green for 尾高
+        paintTargetWord("green");
+      } else {
+        // use orange for 中高
+        paintTargetWord("#ff6207");
+      }
+    }
+  }
+
+  function paintTargetWord(color) {
+    for (const word of document.querySelectorAll(".jpsentence b, .jpsentence strong, .jpword")) {
+      word.style.color = color;
+    }
+  }
+
+  function odaka(pitch_num) {
+    // word is odaka if number of moras is equal to pitch accent position
+    const vocab_kana = document.getElementById("kanaword_hidden");
+    if (vocab_kana === null) {
+      return false;
+    }
+    // small っ is one mora; ゃゅょ are parts of single mora
+    const n_moras = vocab_kana.innerHTML.replace(/[ャュョゃゅょ]/g, "").length;
+    if (n_moras == pitch_num) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /* Partir etiquetas en divs separados */
+  function splitTagDiv() {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const split = `{{Tags}}`.split(" ");
+    const dont_show = ['imageonfront', 'visibleDefs', 'mpv', 'subs2srs'];
+
+    header.innerHTML = "";
+
+    for (const tag of split) {
+      if (tag.length < 1 || dont_show.includes(tag)) continue;
+      if (tag.length < 1) continue;
+      const tag_elem = document.createElement("div");
+      tag_elem.className = "tags";
+      tag_elem.innerHTML = tag;
+      header.appendChild(tag_elem);
+    }
+  }
+
+  /* Mostrar una etiqueta cuando el campo Notes esté presente */
+  function notesDiv() {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const notesSign = `{{#Notes}}Notas{{/Notes}}`.split(" ");
+
+    for (const tag of notesSign) {
+      if (tag.length < 1) continue;
+      const notesDiv = document.createElement("div");
+      notesDiv.className = "tags2";
+      notesDiv.innerHTML = notesSign;
+      header.append(notesDiv);
+    }
+  }
+
+  /* Botón de traducción en inglés */
+  function tweakRevealEng() {
+    const elem = document.querySelector(".ensentence>a.hint");
+    if (elem) {
+      elem.innerText = "Traducción a inglés";
+    }
+  }
+
+  /* Botón de la traducción en español */
+  function tweakRevealEsp() {
+    const elem = document.querySelector(".essentence>a.hint");
+    if (elem) {
+      elem.innerText = "Traducción a español";
+    }
+  }
+
+  /* Botón de Otras definiciones */
+  function tweakRevealDefinition() {
+    const elem = document.querySelector(".definition a.hint");
+    if (elem) {
+      elem.innerText = "Otras definiciones";
+    }
+  }
+
+  /* Furigana de varias lecturas */
+  function formatNewRuby(kanji, readings) {
+    if (readings.length > 1) {
+      return `<ruby>${formatNewRuby(kanji, readings.slice(0, -1))}</ruby><rt>${readings.slice(-1)}</rt>`
+    } else {
+      return `<rb>${kanji}</rb><rt>${readings.join('')}</rt>`
+    }
+  }
+
+  function reformatMultiFurigana() {
+    const separators = /[\s;,.、・。]+/iu;
+    document.querySelectorAll("ruby").forEach(ruby => {
+      try {
+        const kanji = (ruby.querySelector("rb") || ruby.firstChild).textContent.trim()
+        const readings = ruby.querySelector("rt").textContent
+          .split(separators)
+          .map(str => str.trim())
+          .filter(str => str.length)
+        if (readings.length > 1) {
+          ruby.innerHTML = formatNewRuby(kanji, readings)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    })
+  }
+
+  markPitch();
+  reformatMultiFurigana();
+  tweakRevealDefinition();
+  splitTagDiv();
+  tweakRevealEng();
+  tweakRevealEsp();
+  notesDiv();
+</script>
