@@ -151,6 +151,8 @@
         <div class="link-grid">
           <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Takoboto Web" class="link-btn dictionary">
             🐙 Takoboto</a>
+          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Takoboto Android" class="link-btn mobile">
+            📱 Takoboto</a>
           <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji" title="Kanji en Jisho" class="link-btn dictionary">
             📖 Jisho</a>
           <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}" title="Sinónimos en Weblio" class="link-btn dictionary">
@@ -164,9 +166,9 @@
           <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}" title="WaniKani" class="link-btn learning">
             🐊 WaniKani</a>
           <a href="kanjistudy://search?q={{text:VocabKanji}}" title="KanjiStudy búsqueda" class="link-btn mobile">
-            🀄 KSA</a>
+            🀄 Kanji Study</a>
           <a href="kanjistudy://draw?kanji={{text:VocabKanji}}" title="KanjiStudy dibujo" class="link-btn mobile">
-            🖌️ Dibujo</a>
+            🖌️ Kanji Study Dibujo</a>
           <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html" title="Conjugaciones de verbos" class="link-btn tools">
             🔄 Verbos</a>
         </div>
