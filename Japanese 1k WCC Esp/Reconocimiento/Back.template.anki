@@ -198,10 +198,7 @@
     
   </details>
 
-  <!-- Botón flotante para alternar furigana -->
-  <button class="furigana-toggle-btn" onclick="toggleAllFurigana()" title="Ocultar/Mostrar todo el furigana">
-    👁️
-  </button>
+
 
 </div> <!-- /wrap -->
 
@@ -398,50 +395,17 @@
     }, 200);
   }
 
-  function toggleAllFurigana() {
-    const button = document.querySelector('.furigana-toggle-btn');
-    const clickableElements = document.querySelectorAll('.furigana-clickable');
-    
-    // Determinar si la mayoría de elementos tienen furigana oculto
-    const hiddenCount = document.querySelectorAll('.furigana-hidden').length;
-    const shouldShow = hiddenCount > clickableElements.length / 2;
-    
-    clickableElements.forEach(element => {
-      if (shouldShow) {
-        element.classList.remove('furigana-hidden');
-      } else {
-        element.classList.add('furigana-hidden');
-      }
-    });
-    
-    // Cambiar el icono del botón
-    button.innerHTML = shouldShow ? '👁️' : '🙈';
-    button.title = shouldShow ? 'Ocultar todo el furigana' : 'Mostrar todo el furigana';
-    
-    // Feedback visual del botón
-    button.style.transform = 'scale(1.2)';
-    setTimeout(() => {
-      button.style.transform = '';
-    }, 150);
-  }
+
 
   /* Atajos de teclado */
   document.addEventListener('keydown', function(e) {
-    // F para alternar todo el furigana
-    if (e.key === 'f' || e.key === 'F') {
-      e.preventDefault();
-      toggleAllFurigana();
-    }
     // H para ocultar todo el furigana
-    else if (e.key === 'h' || e.key === 'H') {
+    if (e.key === 'h' || e.key === 'H') {
       e.preventDefault();
       const clickableElements = document.querySelectorAll('.furigana-clickable');
       clickableElements.forEach(element => {
         element.classList.add('furigana-hidden');
       });
-      const button = document.querySelector('.furigana-toggle-btn');
-      button.innerHTML = '🙈';
-      button.title = 'Mostrar todo el furigana';
     }
     // S para mostrar todo el furigana
     else if (e.key === 's' || e.key === 'S') {
@@ -450,9 +414,6 @@
       clickableElements.forEach(element => {
         element.classList.remove('furigana-hidden');
       });
-      const button = document.querySelector('.furigana-toggle-btn');
-      button.innerHTML = '👁️';
-      button.title = 'Ocultar todo el furigana';
     }
   });
 
