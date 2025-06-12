@@ -2,23 +2,34 @@
 {{FrontSide}}
 <div class="outside"> Answer</div>
 <div class="card-back shadow">
+
+    <!-- Reading -->
     {{#Reading}}
     <div class="backopt">{{Reading}}</div>
     <hr />
     {{/Reading}}
+
+    <!-- MEANING -->
     {{#Significado}}
     <div class="back">{{Significado}}</div>
-    <hr />
     {{/Significado}}
+    {{^Significado}}
     <div id="idMeaning" class="back">{{Meaning}}</div>
-    {{#Sentence}}
+    {{/Significado}}
     <hr />
+
+    <!-- SENTENCE -->
+    {{#Sentence}}
     <div class="backopt">{{Sentence}}</div>
     {{/Sentence}}
-    {{#SentenceMeaning}}
-    <hr />
+    {{#SignificadoOracion}}
+    <div class="backopt">{{SignificadoOracion}}</div>
+    {{/SignificadoOracion}}
+    {{^SignificadoOracion}}
     <div class="backopt">{{SentenceMeaning}}</div>
-    {{/SentenceMeaning}}
+    {{/SignificadoOracion}}
+
+
     {{#Image}}
     <hr />
     <div class="backopt">{{Image}}</div>
@@ -67,10 +78,8 @@
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
-    <tts service="android" voice="en_US">{{Meaning}}</tts>
-</div>
-<div id="tts">
-    {{#Sentence}}
-    {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
-    {{/Sentence}}
-</div>
+    <div id="tts">
+        {{#Sentence}}
+        {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
+        {{/Sentence}}
+    </div>

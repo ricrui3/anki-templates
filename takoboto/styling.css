@@ -65,9 +65,6 @@ hr {
 }
 
 .front {
-    font-weight: bold;
-    font-family: ume-pms3;
-    font-family: 'Noto Serif JP', serif;
     font-size: 50px;
 }
 
@@ -549,5 +546,9 @@ hr {
 }
 
 #tts {
+    display: none;
+}
+
+.hidden {
     display: none;
 }

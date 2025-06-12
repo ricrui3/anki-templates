@@ -6,9 +6,12 @@
 <div class="outside">Question</div>
 <div class="card-front shadow">
     <div class="tags">{{Deck}}</div>
+    {{#Significado}}
     <div id="idSignificado" class="back">{{Significado}}</div>
-    <hr />
+    {{/Significado}}
+    {{^Significado}}
     <div id="idMeaning" class="back">{{Meaning}}</div>
+    {{/Significado}}
     {{#Note}}
     <hr />
     <div class="tags">{{Note}}</div>

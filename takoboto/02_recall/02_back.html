@@ -3,18 +3,33 @@
 <div class="outside"> Answer</div>
 <div class="card-back shadow">
     <div id="idReading" class="back">{{Japanese}}</div>
+    <!-- Reading -->
     {{#Reading}}
-    <hr />
     <div class="backopt">{{Reading}}</div>
-    {{/Reading}}
-    {{#Sentence}}
     <hr />
+    {{/Reading}}
+
+    <!-- MEANING -->
+    {{#Significado}}
+    <div class="back">{{Significado}}</div>
+    {{/Significado}}
+    {{^Significado}}
+    <div id="idMeaning" class="back">{{Meaning}}</div>
+    {{/Significado}}
+    <hr />
+
+    <!-- SENTENCE -->
+    {{#Sentence}}
     <div class="backopt">{{Sentence}}</div>
     {{/Sentence}}
-    {{#SentenceMeaning}}
-    <hr />
+    {{#SignificadoOracion}}
+    <div class="backopt">{{SignificadoOracion}}</div>
+    {{/SignificadoOracion}}
+    {{^SignificadoOracion}}
     <div class="backopt">{{SentenceMeaning}}</div>
-    {{/SentenceMeaning}}
+    {{/SignificadoOracion}}
+
+
     {{#Image}}
     <hr />
     <div class="backopt">{{Image}}</div>
@@ -63,7 +78,6 @@
     {{#Sentence}}
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
-    <tts service="android" voice="en_US">{{Meaning}}</tts>
 </div>
 <div id="tts">
     {{#Sentence}}
@@ -72,13 +86,13 @@
 </div>
 <!-- JAVASCRIPT -->
 <script>
-var note = document.getElementById("idNote").textContent
-if (note) {
-    if (note.includes("Usually written using kana alone")) {
-        document.getElementById("idReading").style.color = "yellow";
+    var note = document.getElementById("idNote").textContent
+    if (note) {
+        if (note.includes("Usually written using kana alone")) {
+            document.getElementById("idReading").style.color = "yellow";
+        }
+        if (note.includes("Takes the aux. verb suru")) {
+            document.getElementById("idReading").innerHTML += ' + する';
+        }
     }
-    if (note.includes("Takes the aux. verb suru")) {
-        document.getElementById("idReading").innerHTML += ' + する';
-    }
-}
 </script>
