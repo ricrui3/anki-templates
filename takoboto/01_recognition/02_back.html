@@ -1,15 +1,40 @@
-<!-- RECOGNITION -->
+<!--
+  TAKOBOTO RECOGNITION CARD - BACK SIDE
+  ====================================
+  
+  This template shows the answer for recognition cards, displaying:
+  - The front side (Japanese word)
+  - Reading/pronunciation
+  - Meaning/definition
+  - Example sentence with translation
+  - Optional image
+  - External resource links
+  - Audio/TTS functionality
+  
+  Features:
+  - Bilingual support (Spanish/English meanings)
+  - Multiple external dictionary links
+  - Native audio with TTS fallback
+  - Takoboto app integration
+-->
+
+<!-- Include the front side of the card -->
 {{FrontSide}}
+
+<!-- Answer indicator (hidden by default) -->
 <div class="outside"> Answer</div>
+
+<!-- Main answer container with white background -->
 <div class="card-back shadow">
 
-    <!-- Reading -->
+    <!-- Reading/pronunciation section -->
     {{#Reading}}
     <div class="backopt">{{Reading}}</div>
     <hr />
     {{/Reading}}
 
-    <!-- MEANING -->
+    <!-- MEANING/DEFINITION SECTION -->
+    <!-- Priority: Spanish meaning if available, otherwise English -->
     {{#Significado}}
     <div class="back">{{Significado}}</div>
     {{/Significado}}
@@ -18,10 +43,13 @@
     {{/Significado}}
     <hr />
 
-    <!-- SENTENCE -->
+    <!-- EXAMPLE SENTENCE SECTION -->
+    <!-- Japanese example sentence -->
     {{#Sentence}}
     <div class="backopt">{{Sentence}}</div>
     {{/Sentence}}
+    
+    <!-- Sentence translation (Spanish priority, English fallback) -->
     {{#SignificadoOracion}}
     <div class="backopt">{{SignificadoOracion}}</div>
     {{/SignificadoOracion}}
@@ -29,32 +57,41 @@
     <div class="backopt">{{SentenceMeaning}}</div>
     {{/SignificadoOracion}}
 
-
+    <!-- OPTIONAL IMAGE SECTION -->
     {{#Image}}
     <hr />
     <div class="backopt">{{Image}}</div>
     {{/Image}}
+    
+    <!-- EXTERNAL RESOURCES SECTION -->
     <hr />
     <div class="backopt">
+        <!-- Jisho.org - Popular Japanese-English dictionary -->
         <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
             Jisho
         </a>
         <br>
+        <!-- Google Images - Visual references -->
         <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
             Google images
         </a>
         <br>
+        <!-- Irasutoya - Japanese illustration site -->
         <a class="link" href="https://www.irasutoya.com/search?q={{text:Japanese}}">
             Irasutoya
         </a>
         <br>
+        <!-- Takoboto Web - Online version of the app -->
         <a class="link" href="http://takoboto.jp/?q={{text:Japanese}}&lang=spa">
             Takoboto Web
         </a>
         <br>
+        <!-- Tatoeba - Example sentences database -->
         <a class="link" href="https://tatoeba.org/en/sentences/search?from=jpn&query={{text:Japanese}}">
             Tatoeba
         </a>
+        
+        <!-- Optional direct link to Takoboto app -->
         {{#Link}}
         <br>
         <a href="{{Link}}">
@@ -63,23 +100,33 @@
         {{/Link}}
     </div>
 </div>
-<!-- Native Speaker -->
+
+<!-- AUDIO SECTION -->
+<!-- Native speaker audio (if available) -->
 {{#Audio}}
 {{Audio}}
 {{/Audio}}
-<!-- TTS -->
+
+<!-- Text-to-Speech fallback (when no native audio) -->
 {{^Audio}}
 <div id="tts">
+    <!-- Android TTS for the main word -->
     <tts service="android" voice="ja_JP">{{kanji:Japanese}}</tts>
+    <!-- Apple TTS alternative for the main word -->
     {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
 </div>
 {{/Audio}}
+
+<!-- TTS for example sentences -->
 <div id="tts">
     {{#Sentence}}
+    <!-- Android TTS for the sentence -->
     <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
     {{/Sentence}}
     <div id="tts">
         {{#Sentence}}
+        <!-- Apple TTS alternative for the sentence -->
         {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
         {{/Sentence}}
     </div>
+</div>

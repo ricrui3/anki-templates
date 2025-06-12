@@ -1,34 +1,84 @@
-<!-- RECOGNITION -->
+<!--
+  TAKOBOTO RECOGNITION CARD - FRONT SIDE
+  =====================================
+  
+  This template displays the Japanese word/phrase for recognition practice.
+  The user sees the Japanese text and must recall its meaning.
+  
+  Card Structure:
+  - Deck name (as tag)
+  - Japanese word/phrase (large text)
+  - Optional reading/furigana (toggleable)
+  - Optional note information
+  
+  Features:
+  - Furigana toggle functionality
+  - Special highlighting for kana-only words
+  - Automatic suru verb detection and display
+  - Responsive font loading
+-->
+
+<!-- External font imports for consistent typography -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+
+<!-- Question indicator (hidden by default) -->
 <div class="outside">Question</div>
+
+<!-- Main card container with blue background -->
 <div class="card-front shadow">
+    <!-- Deck name displayed as a tag -->
     <div class="tags">{{Deck}}</div>
-    <!-- Japanese word -->
+    
+    <!-- Primary Japanese word/phrase - main focus of the card -->
     <div id="idReading" class="front">{{Japanese}}</div>
-    <!-- Reading -->
+    
+    <!-- Optional reading/furigana section with toggle functionality -->
     {{#Reading}}
     <div class="frontopt">
+        <!-- Checkbox for toggling furigana visibility -->
         <input type="checkbox" id="btnControl" />
+        <!-- Label containing the reading, initially hidden -->
         <label for="btnControl" class='furigana-hidden'>
             {{Reading}}
         </label>
     </div>
     {{/Reading}}
-    <!-- Note -->
+    
+    <!-- Separator line -->
     <hr>
+    
+    <!-- Note field for additional information -->
     <div id="idNote" class="tags">{{Note}}</div>
 </div>
+
 <script>
+/*
+ * FRONT CARD JAVASCRIPT FUNCTIONALITY
+ * ===================================
+ * 
+ * This script handles special cases and automatic formatting:
+ * 1. Kana-only words: Highlighted in yellow with auto-shown reading
+ * 2. Suru verbs: Automatically appends " + する" to the display
+ */
+
+// Get the note content to check for special indicators
 var note = document.getElementById("idNote").textContent
+
 if (note) {
+    // Handle words that are usually written in kana only
     if (note.includes("Usually written using kana alone")) {
+        // Highlight the word in yellow to indicate it's typically kana-only
         document.getElementById("idReading").style.color = "yellow";
+        // Automatically show the reading for kana-only words
         document.getElementById("btnControl").checked = true;
     }
+    
+    // Handle suru verbs (verbs that take the auxiliary verb する)
     if (note.includes("Takes the aux. verb suru")) {
+        // Append " + する" to show this is a suru verb
         document.getElementById("idReading").innerHTML += ' + する';
     }
 }

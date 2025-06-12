@@ -1,17 +1,45 @@
-<!-- RECALL -->
+<!--
+  TAKOBOTO RECALL CARD - FRONT SIDE
+  ================================
+  
+  This template displays the meaning/definition for recall practice.
+  The user sees the English/Spanish meaning and must recall the Japanese word.
+  
+  Card Structure:
+  - Deck name (as tag)
+  - Meaning/definition (Spanish priority, English fallback)
+  - Optional note information
+  
+  Features:
+  - Bilingual support (Spanish/English)
+  - Clean, focused layout for production practice
+  - Responsive font loading
+-->
+
+<!-- External font imports for consistent typography -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+
+<!-- Question indicator (hidden by default) -->
 <div class="outside">Question</div>
+
+<!-- Main card container with blue background -->
 <div class="card-front shadow">
+    <!-- Deck name displayed as a tag -->
     <div class="tags">{{Deck}}</div>
+    
+    <!-- MEANING/DEFINITION SECTION -->
+    <!-- Priority: Spanish meaning if available, otherwise English -->
     {{#Significado}}
     <div id="idSignificado" class="back">{{Significado}}</div>
     {{/Significado}}
     {{^Significado}}
     <div id="idMeaning" class="back">{{Meaning}}</div>
     {{/Significado}}
+    
+    <!-- Optional note section with additional context -->
     {{#Note}}
     <hr />
     <div class="tags">{{Note}}</div>

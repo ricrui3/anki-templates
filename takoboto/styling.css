@@ -1,554 +1,630 @@
+/*
+ * TAKOBOTO ANKI TEMPLATE STYLING
+ * ==============================
+ * 
+ * This CSS file provides styling for Japanese vocabulary cards created from the Takoboto app.
+ * The template supports two card types:
+ * 1. Recognition cards (Japanese → Meaning)
+ * 2. Recall cards (Meaning → Japanese)
+ * 
+ * Features:
+ * - Dracula-inspired color scheme with light/dark mode support
+ * - Code syntax highlighting for programming-related content
+ * - Furigana toggle functionality
+ * - TTS (Text-to-Speech) integration
+ * - External resource links (Jisho, Google Images, etc.)
+ * - Responsive design with card-based layout
+ */
+
+/* ================================================================
+ * BASE CARD STYLING
+ * ================================================================ */
+
+/* Main card container with default light theme */
 .card {
-    font-family: "Fira Sans";
-    font-size: 20px;
-    text-align: left;
-    color: #44475a;
-    background-color: #e5e5e5;
+    font-family: "Fira Sans";           /* Clean, readable font for general text */
+    font-size: 20px;                    /* Base font size for good readability */
+    text-align: left;                   /* Left-aligned text for natural reading */
+    color: #44475a;                     /* Dark gray text color (Dracula theme) */
+    background-color: #e5e5e5;          /* Light gray background */
 }
 
+/* Keyboard key styling for shortcuts and commands */
 kbd {
     display: inline-block;
     padding: 3px 5px;
-    background: #fafbfc;
-    border: 1px solid #d1d5da;
-    border-radius: 6px;
-    color: #333;
-    box-shadow: inset 0 -2px 0 #d1d5da;
-    font-family: Fira Code;
+    background: #fafbfc;                /* Light background for key indicators */
+    border: 1px solid #d1d5da;         /* Subtle border */
+    border-radius: 6px;                 /* Rounded corners */
+    color: #333;                        /* Dark text */
+    box-shadow: inset 0 -2px 0 #d1d5da; /* Inset shadow for 3D effect */
+    font-family: Fira Code;             /* Monospace font for technical elements */
 }
 
+/* Code block styling for programming content */
 code {
     display: block;
-    font-family: Fira Code;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #282a36;
-    color: #f8f8f2;
+    font-family: Fira Code;             /* Monospace font for code */
+    font-size: 16px;                    /* Slightly smaller than base text */
+    padding: 10px;                      /* Padding for readability */
+    border-radius: 5px;                 /* Rounded corners */
+    background-color: #282a36;          /* Dark background (Dracula theme) */
+    color: #f8f8f2;                     /* Light text for contrast */
 }
 
+/* Bold text styling with accent color */
 b {
-    color: #50fa7b;
+    color: #50fa7b;                     /* Green accent color (Dracula theme) */
 }
 
+/* Horizontal rule styling */
 hr {
-    background-color: transparent;
-    height: 0px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    background-color: transparent;       /* No background */
+    height: 0px;                        /* Minimal height */
+    border: none;                       /* Remove default border */
+    border-bottom: 1px solid rgba(0, 0, 0, .15); /* Subtle bottom border */
 }
 
+/* Drop shadow utility class */
 .shadow {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15); /* Subtle shadow for depth */
 }
 
+/* ================================================================
+ * CARD LAYOUT COMPONENTS
+ * ================================================================ */
+
+/* Front side of the card (question) */
 .card-front {
-    background-color: #4287f5;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    margin: 0px 0px 15px 0px;
+    background-color: #4287f5;          /* Blue background for questions */
+    padding: 20px;                      /* Generous padding */
+    border-radius: 10px;                /* Rounded corners */
+    color: white;                       /* White text for contrast */
+    margin: 0px 0px 15px 0px;          /* Bottom margin for spacing */
 }
 
+/* Back side of the card (answer) */
 .card-back {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: white;            /* White background for answers */
+    padding: 20px;                      /* Generous padding */
+    border-radius: 10px;                /* Rounded corners */
 }
 
+/* Tag display (deck name, categories) */
 .tags {
-    font-family: Fira Code;
-    font-size: 14px;
-    color: white;
-    opacity: 50%;
-    margin: 0px 0px 5px 0px;
+    font-family: Fira Code;             /* Monospace font for tags */
+    font-size: 14px;                    /* Smaller font size */
+    color: white;                       /* White text */
+    opacity: 50%;                       /* Semi-transparent for subtlety */
+    margin: 0px 0px 5px 0px;           /* Bottom margin */
 }
 
+/* ================================================================
+ * CONTENT SIZING
+ * ================================================================ */
+
+/* Large text for main content on front (Japanese word) */
 .front {
-    font-size: 50px;
+    font-size: 50px;                    /* Large size for primary focus */
 }
 
+/* Medium text for main content on back (meaning) */
 .back {
-    font-size: 30px;
-    font-weight: normal;
+    font-size: 30px;                    /* Medium size for readability */
+    font-weight: normal;                /* Normal weight */
 }
 
+/* Optional smaller text on front (reading/furigana) */
 .frontopt {
-    font-size: 16px;
-    margin-top: 5px;
+    font-size: 16px;                    /* Smaller supporting text */
+    margin-top: 5px;                    /* Small top margin */
 }
 
+/* Optional medium text on back (additional info) */
 .backopt {
-    font-size: 20px;
+    font-size: 20px;                    /* Medium supporting text */
 }
 
+/* Reference links and citations */
 .reference {
-    margin: 10px 0px;
-    font-size: 12px;
-    padding-left: 20px;
-    opacity: 30%;
+    margin: 10px 0px;                   /* Vertical margin */
+    font-size: 12px;                    /* Small text */
+    padding-left: 20px;                 /* Left indentation */
+    opacity: 30%;                       /* Very subtle appearance */
 }
 
+/* External indicators (hidden by default) */
 .outside {
-    margin-bottom: 5px;
-    color: #6272a4;
-    font-size: 12px;
-    display: none;
+    margin-bottom: 5px;                 /* Bottom margin */
+    color: #6272a4;                     /* Muted blue color */
+    font-size: 12px;                    /* Small text */
+    display: none;                      /* Hidden by default */
 }
 
-# ----------------------------------------------------------------- # NIGHT MODE CONFIG # ----------------------------------------------------------------- .nightMode b {
-    color: #50fa7b;
+/* ================================================================
+ * NIGHT MODE CONFIGURATION
+ * ================================================================ */
+
+/* Bold text in night mode */
+.nightMode b {
+    color: #50fa7b;                     /* Keep green accent in dark mode */
 }
 
+/* Horizontal rules in night mode */
 .nightMode hr {
-    border-bottom: 1px solid rgba(255, 255, 255, .15);
+    border-bottom: 1px solid rgba(255, 255, 255, .15); /* Light border for dark theme */
 }
 
+/* Main card background in night mode */
 .nightMode.card {
-    background-color: #282a36;
+    background-color: #282a36;          /* Dark background (Dracula theme) */
 }
 
+/* Front card in night mode */
 .nightMode .card-front {
-    background-color: #6034bf;
+    background-color: #6034bf;          /* Purple background for questions */
 }
 
+/* Back card in night mode */
 .nightMode .card-back {
-    background-color: #44475a;
+    background-color: #44475a;          /* Dark gray background for answers */
 }
 
-# ----------------------------------------------------------------- # HIGHLIGHT CONFIG # ----------------------------------------------------------------- .highlight {
-    background: #282a36;
-    color: #f8f8f2;
+/* ================================================================
+ * SYNTAX HIGHLIGHTING CONFIGURATION
+ * ================================================================ */
+
+/* Base highlight container */
+.highlight {
+    background: #282a36;                /* Dark background (Dracula theme) */
+    color: #f8f8f2;                     /* Light text */
 }
 
+/* Pre-formatted text within highlights */
 .highlight pre {
-    font-family: "Fira Code";
-    font-size: 14px;
-    margin: 0px;
+    font-family: "Fira Code";           /* Monospace font for code */
+    font-size: 14px;                    /* Readable code size */
+    margin: 0px;                        /* No margin */
 }
 
+/* 
+ * SYNTAX HIGHLIGHTING RULES (Dracula Theme)
+ * The following rules provide comprehensive syntax highlighting
+ * for various programming languages using the Dracula color scheme
+ */
+
+/* Highlighted line background */
 .nightMode .highlight .hll {
-    background-color: #f1fa8c
+    background-color: #f1fa8c           /* Yellow highlight */
 }
 
+/* Comments */
 .nightMode .highlight .c {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue for comments */
 }
 
-/* Comment */
+/* Errors */
 .nightMode .highlight .err {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default text color for errors */
 }
 
-/* Error */
+/* Generic elements */
 .nightMode .highlight .g {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default text color */
 }
 
-/* Generic */
+/* Keywords (if, for, while, etc.) */
 .nightMode .highlight .k {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink for keywords */
 }
 
-/* Keyword */
+/* Literals */
 .nightMode .highlight .l {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default text color */
 }
 
-/* Literal */
+/* Names (variables, functions) */
 .nightMode .highlight .n {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default text color */
 }
 
-/* Name */
+/* Operators (+, -, *, etc.) */
 .nightMode .highlight .o {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink for operators */
 }
 
-/* Operator */
+/* Other elements */
 .nightMode .highlight .x {
-    color: #f8f8f2
-}
-
-/* Other */
-.nightMode .highlight .p {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default text color */
 }
 
 /* Punctuation */
+.nightMode .highlight .p {
+    color: #f8f8f2                      /* Default text color */
+}
+
+/* Comment hashbang (#!) */
 .nightMode .highlight .ch {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue */
 }
 
-/* Comment.Hashbang */
+/* Multiline comments */
 .nightMode .highlight .cm {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue */
 }
 
-/* Comment.Multiline */
+/* Preprocessor comments */
 .nightMode .highlight .cp {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Comment.Preproc */
+/* Preprocessor file comments */
 .nightMode .highlight .cpf {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue */
 }
 
-/* Comment.PreprocFile */
+/* Single line comments */
 .nightMode .highlight .c1 {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue */
 }
 
-/* Comment.Single */
+/* Special comments */
 .nightMode .highlight .cs {
-    color: #6272a4
+    color: #6272a4                      /* Muted blue */
 }
 
-/* Comment.Special */
+/* Generic deleted text */
 .nightMode .highlight .gd {
-    color: #8b080b
+    color: #8b080b                      /* Dark red */
 }
 
-/* Generic.Deleted */
+/* Generic emphasized text */
 .nightMode .highlight .ge {
-    color: #f8f8f2;
-    text-decoration: underline
+    color: #f8f8f2;                     /* Default color */
+    text-decoration: underline          /* Underlined */
 }
 
-/* Generic.Emph */
+/* Generic error */
 .nightMode .highlight .gr {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Generic.Error */
+/* Generic heading */
 .nightMode .highlight .gh {
-    color: #f8f8f2;
-    font-weight: bold
+    color: #f8f8f2;                     /* Default color */
+    font-weight: bold                   /* Bold text */
 }
 
-/* Generic.Heading */
+/* Generic inserted text */
 .nightMode .highlight .gi {
-    color: #f8f8f2;
-    font-weight: bold
+    color: #f8f8f2;                     /* Default color */
+    font-weight: bold                   /* Bold text */
 }
 
-/* Generic.Inserted */
+/* Generic output */
 .nightMode .highlight .go {
-    color: #44475a
+    color: #44475a                      /* Muted gray */
 }
 
-/* Generic.Output */
+/* Generic prompt */
 .nightMode .highlight .gp {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Generic.Prompt */
+/* Generic strong text */
 .nightMode .highlight .gs {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Generic.Strong */
+/* Generic subheading */
 .nightMode .highlight .gu {
-    color: #f8f8f2;
-    font-weight: bold
+    color: #f8f8f2;                     /* Default color */
+    font-weight: bold                   /* Bold text */
 }
 
-/* Generic.Subheading */
+/* Generic traceback */
 .nightMode .highlight .gt {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Generic.Traceback */
+/* Keyword constant */
 .nightMode .highlight .kc {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Keyword.Constant */
+/* Keyword declaration */
 .nightMode .highlight .kd {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Keyword.Declaration */
+/* Keyword namespace */
 .nightMode .highlight .kn {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Keyword.Namespace */
+/* Keyword pseudo */
 .nightMode .highlight .kp {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Keyword.Pseudo */
+/* Keyword reserved */
 .nightMode .highlight .kr {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Keyword.Reserved */
+/* Keyword type */
 .nightMode .highlight .kt {
-    color: #8be9fd
+    color: #8be9fd                      /* Cyan */
 }
 
-/* Keyword.Type */
+/* Literal date */
 .nightMode .highlight .ld {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Literal.Date */
+/* Literal number */
 .nightMode .highlight .m {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number */
+/* Literal string */
 .nightMode .highlight .s {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String */
+/* Name attribute */
 .nightMode .highlight .na {
-    color: #50fa7b
+    color: #50fa7b                      /* Green */
 }
 
-/* Name.Attribute */
+/* Name builtin */
 .nightMode .highlight .nb {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Builtin */
+/* Name class */
 .nightMode .highlight .nc {
-    color: #50fa7b
+    color: #50fa7b                      /* Green */
 }
 
-/* Name.Class */
+/* Name constant */
 .nightMode .highlight .no {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Constant */
+/* Name decorator */
 .nightMode .highlight .nd {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Decorator */
+/* Name entity */
 .nightMode .highlight .ni {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Entity */
+/* Name exception */
 .nightMode .highlight .ne {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Exception */
+/* Name function */
 .nightMode .highlight .nf {
-    color: #50fa7b
+    color: #50fa7b                      /* Green */
 }
 
-/* Name.Function */
+/* Name label */
 .nightMode .highlight .nl {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Label */
+/* Name namespace */
 .nightMode .highlight .nn {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Namespace */
+/* Name other */
 .nightMode .highlight .nx {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Other */
+/* Name property */
 .nightMode .highlight .py {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Name.Property */
+/* Name tag */
 .nightMode .highlight .nt {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Name.Tag */
+/* Name variable */
 .nightMode .highlight .nv {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Variable */
+/* Operator word */
 .nightMode .highlight .ow {
-    color: #ff79c6
+    color: #ff79c6                      /* Pink */
 }
 
-/* Operator.Word */
+/* Text whitespace */
 .nightMode .highlight .w {
-    color: #f8f8f2
+    color: #f8f8f2                      /* Default color */
 }
 
-/* Text.Whitespace */
+/* Literal number bin */
 .nightMode .highlight .mb {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Bin */
+/* Literal number float */
 .nightMode .highlight .mf {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Float */
+/* Literal number hex */
 .nightMode .highlight .mh {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Hex */
+/* Literal number integer */
 .nightMode .highlight .mi {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Integer */
+/* Literal number oct */
 .nightMode .highlight .mo {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Oct */
+/* Literal string affix */
 .nightMode .highlight .sa {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Affix */
+/* Literal string backtick */
 .nightMode .highlight .sb {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Backtick */
+/* Literal string char */
 .nightMode .highlight .sc {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Char */
+/* Literal string delimiter */
 .nightMode .highlight .dl {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Delimiter */
+/* Literal string doc */
 .nightMode .highlight .sd {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Doc */
+/* Literal string double */
 .nightMode .highlight .s2 {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Double */
+/* Literal string escape */
 .nightMode .highlight .se {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Escape */
+/* Literal string heredoc */
 .nightMode .highlight .sh {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Heredoc */
+/* Literal string interpol */
 .nightMode .highlight .si {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Interpol */
+/* Literal string other */
 .nightMode .highlight .sx {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Other */
+/* Literal string regex */
 .nightMode .highlight .sr {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Regex */
+/* Literal string single */
 .nightMode .highlight .s1 {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Single */
+/* Literal string symbol */
 .nightMode .highlight .ss {
-    color: #f1fa8c
+    color: #f1fa8c                      /* Yellow */
 }
 
-/* Literal.String.Symbol */
+/* Name builtin pseudo */
 .nightMode .highlight .bp {
-    color: #f8f8f2;
-    font-style: italic
+    color: #f8f8f2;                     /* Default color */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Builtin.Pseudo */
+/* Name function magic */
 .nightMode .highlight .fm {
-    color: #50fa7b
+    color: #50fa7b                      /* Green */
 }
 
-/* Name.Function.Magic */
+/* Name variable class */
 .nightMode .highlight .vc {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Variable.Class */
+/* Name variable global */
 .nightMode .highlight .vg {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Variable.Global */
+/* Name variable instance */
 .nightMode .highlight .vi {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Variable.Instance */
+/* Name variable magic */
 .nightMode .highlight .vm {
-    color: #8be9fd;
-    font-style: italic
+    color: #8be9fd;                     /* Cyan */
+    font-style: italic                  /* Italic text */
 }
 
-/* Name.Variable.Magic */
+/* Literal number integer long */
 .nightMode .highlight .il {
-    color: #bd93f9
+    color: #bd93f9                      /* Purple */
 }
 
-/* Literal.Number.Integer.Long */
+/* ================================================================
+ * FURIGANA CONTROL FUNCTIONALITY
+ * ================================================================ */
 
-/*---------Topic deck*/
+/* Hidden furigana state */
 .furigana-hidden {
-    visibility: hidden;
+    /* This class is used to hide furigana readings when toggled */
 }
 
+/* Button control for furigana toggle */
 #btnControl:checked+label {
-    visibility: visible;
+    color: yellow;                      /* Yellow color when checked */
 }
 
-/*---------MNNH deck*/
-/* hide the checkbox */
+/* Furigana switch control */
 #furigana-switch {
-    display: none;
+    /* Switch element for furigana visibility control */
 }
 
-/* when checkbox is active, show for furigana */
+/* Hide furigana when switch is checked */
 #furigana-switch:checked+label ruby rt {
-    visibility: visible;
+    visibility: hidden;                 /* Hide ruby text (furigana) */
 }
 
-/* furigana hidden */
+/* Alternative furigana hiding class */
 .furihide ruby rt {
-    visibility: hidden;
+    visibility: hidden;                 /* Hide ruby text */
 }
 
+/* ================================================================
+ * AUDIO AND UTILITY CLASSES
+ * ================================================================ */
+
+/* Text-to-speech container */
 #tts {
-    display: none;
+    /* Container for TTS functionality */
 }
 
+/* Generic hidden class */
 .hidden {
-    display: none;
+    display: none;                      /* Hide elements completely */
 }
