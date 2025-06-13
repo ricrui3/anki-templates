@@ -66,42 +66,89 @@
     <div class="backopt">{{Image}}</div>
     {{/Image}}
     
-    <!-- EXTERNAL RESOURCES SECTION -->
-    <hr />
-    <div class="backopt">
-        <!-- Jisho.org - Popular Japanese-English dictionary -->
-        <a class="link" href="https://jisho.org/search/{{text:Japanese}}">
-            Jisho
-        </a>
-        <br>
-        <!-- Google Images - Visual references -->
-        <a class="link" href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}">
-            Google images
-        </a>
-        <br>
-        <!-- Irasutoya - Japanese illustration site -->
-        <a class="link" href="https://www.irasutoya.com/search?q={{text:Japanese}}">
-            Irasutoya
-        </a>
-        <br>
-        <!-- Takoboto Web - Online version of the app -->
-        <a class="link" href="http://takoboto.jp/?q={{text:Japanese}}&lang=spa">
-            Takoboto Web
-        </a>
-        <br>
-        <!-- Tatoeba - Example sentences database -->
-        <a class="link" href="https://tatoeba.org/en/sentences/search?from=jpn&query={{text:Japanese}}">
-            Tatoeba
-        </a>
+    <!-- ORGANIZED EXTERNAL RESOURCES SECTION -->
+    <!-- Comprehensive collection of learning resources organized by category -->
+    <details class="resources-section">
+      <summary>🔗 Recursos de estudio</summary>
+      
+      <!-- Example sentence resources -->
+      {{#Sentence}}
+      <div class="resource-group">
+        <h4>📝 Oración de ejemplo</h4>
+        <div class="link-grid">
+          <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:Sentence}}" title="Traducir oración en DeepL" class="link-btn translate">
+            🌐 DeepL</a>
+          <a href="https://jpdb.io/search?q={{text:kanji:Sentence}}&lang=spanish#a" title="Detalles de la oración en JPDB" class="link-btn database">
+            📊 JPDB</a>
+          <a href="http://takoboto.jp/?q={{text:kanji:Sentence}}&lang=spa" title="Detalles de la oración en Takoboto Web" class="link-btn dictionary">
+            🐙 Takoboto</a>
+          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:Sentence}};end" title="Takoboto Android" class="link-btn mobile">
+            📱 Takoboto</a>
+        </div>
+      </div>
+      {{/Sentence}}
+      
+      <!-- Main vocabulary resources -->
+      <div class="resource-group">
+        <h4>📚 Vocabulario</h4>
         
-        <!-- Optional direct link to Takoboto app -->
-        {{#Link}}
-        <br>
-        <a href="{{Link}}">
-            Open in Takoboto
-        </a>
-        {{/Link}}
-    </div>
+        <div class="resource-subgroup">
+          <h5>Diccionarios</h5>
+          <div class="link-grid">
+            <a href="http://takoboto.jp/?q={{text:Japanese}}&lang=spa" title="Takoboto Web" class="link-btn dictionary">
+              🐙 Takoboto</a>
+            <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:Japanese}};end" title="Takoboto Android" class="link-btn mobile">
+              📱 Takoboto</a>
+            <a href="https://jisho.org/search/{{text:Japanese}}" title="Diccionario Jisho" class="link-btn dictionary">
+              📖 Jisho</a>
+            <a href="https://thesaurus.weblio.jp/content/{{text:Japanese}}" title="Sinónimos en Weblio" class="link-btn dictionary">
+              📝 Weblio</a>
+          </div>
+        </div>
+
+        <div class="resource-subgroup">
+          <h5>Aprendizaje</h5>
+          <div class="link-grid">
+            <a href="https://www.wanikani.com/search?query={{text:Japanese}}" title="WaniKani" class="link-btn learning">
+              🐊 WaniKani</a>
+            <a href="kanjistudy://search?q={{text:Japanese}}" title="KanjiStudy búsqueda" class="link-btn mobile">
+              🀄 Kanji Study</a>
+            <a href="kanjistudy://draw?kanji={{text:Japanese}}" title="KanjiStudy dibujo" class="link-btn mobile">
+              🖌️ Kanji Study Dibujo</a>
+            <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:Japanese}}.html" title="Conjugaciones de verbos" class="link-btn tools">
+              🔄 Verbos</a>
+          </div>
+        </div>
+
+        <div class="resource-subgroup">
+          <h5>Contexto</h5>
+          <div class="link-grid">
+            <a href="https://sentencesearch.neocities.org/#{{text:Japanese}}" title="Oraciones de ejemplo" class="link-btn database">
+              💬 Oraciones</a>
+            <a href="https://tatoeba.org/en/sentences/search?from=jpn&query={{text:Japanese}}" title="Tatoeba - Base de datos de oraciones" class="link-btn database">
+              💬 Tatoeba</a>
+            <a href="https://www.irasutoya.com/search?q={{text:Japanese}}" title="Imágenes en Irasutoya" class="link-btn images">
+              🎨 Irasutoya</a>
+            <a href="https://www.google.com/search?tbm=isch&q={{text:Japanese}}" title="Búsqueda de imágenes" class="link-btn images">
+              🖼️ Imágenes</a>
+          </div>
+        </div>
+
+        <div class="resource-subgroup mobile-only">
+          <h5>Apps móviles</h5>
+          <div class="link-grid">
+            <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:Japanese}};end" title="Takoboto Android" class="link-btn mobile">
+              📱 Takoboto</a>
+            <!-- Optional direct link to Takoboto app -->
+            {{#Link}}
+            <a href="{{Link}}" title="Abrir en Takoboto" class="link-btn mobile">
+              🐙 Takoboto App</a>
+            {{/Link}}
+          </div>
+        </div>
+      </div>
+      
+    </details>
 </div>
 
 <!-- AUDIO SECTION -->

@@ -616,6 +616,261 @@ hr {
 }
 
 /* ================================================================
+ * ORGANIZED RESOURCES SECTION
+ * ================================================================ */
+
+/* Main resources container */
+.resources-section {
+    margin-top: 12px;                   /* Space from content above */
+}
+
+/* Collapsible summary header */
+.resources-section > summary {
+    font-size: 16px;                    /* Readable header size */
+    font-weight: 600;                   /* Bold header */
+    color: #2e2e30;                     /* Dark text */
+    cursor: pointer;                    /* Indicate clickability */
+    padding: 8px 12px;                  /* Comfortable padding */
+    background-color: #f0f0f0;          /* Light background */
+    border-radius: 6px;                 /* Rounded corners */
+    margin-bottom: 8px;                 /* Space below header */
+    user-select: none;                  /* Prevent text selection */
+}
+
+/* Summary hover effect */
+.resources-section > summary:hover {
+    background-color: #e8e8e8;          /* Darker on hover */
+}
+
+/* Night mode summary styling */
+.nightMode .resources-section > summary {
+    color: #eee;                        /* Light text */
+    background-color: #444;             /* Dark background */
+}
+
+/* Night mode summary hover */
+.nightMode .resources-section > summary:hover {
+    background-color: #555;             /* Lighter on hover */
+}
+
+/* Resource group container */
+.resource-group {
+    margin-bottom: 16px;                /* Space between groups */
+    background-color: #f9f9f9;          /* Light background */
+    border-radius: 8px;                 /* Rounded corners */
+    padding: 12px;                      /* Internal padding */
+    border: 1px solid #e0e0e0;         /* Subtle border */
+}
+
+/* Resource group heading */
+.resource-group h4 {
+    margin: 0 0 12px 0;                 /* Bottom margin only */
+    font-size: 18px;                    /* Prominent size */
+    font-weight: 600;                   /* Bold text */
+    color: #2e2e30;                     /* Dark text */
+    border-bottom: 2px solid #e0e0e0;   /* Underline effect */
+    padding-bottom: 6px;                /* Space above border */
+}
+
+/* Resource subgroup container */
+.resource-subgroup {
+    margin-bottom: 12px;                /* Space between subgroups */
+}
+
+/* Last subgroup has no bottom margin */
+.resource-subgroup:last-child {
+    margin-bottom: 0;                   /* Remove bottom margin */
+}
+
+/* Subgroup heading */
+.resource-subgroup h5 {
+    margin: 0 0 8px 0;                  /* Bottom margin only */
+    font-size: 14px;                    /* Smaller than main heading */
+    font-weight: 500;                   /* Medium weight */
+    color: #555;                        /* Medium gray */
+    text-transform: uppercase;          /* All caps */
+    letter-spacing: 0.5px;              /* Slight letter spacing */
+}
+
+/* Grid layout for links */
+.link-grid {
+    display: grid;                      /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive columns */
+    gap: 8px;                          /* Space between items */
+    margin-bottom: 12px;               /* Space below grid */
+}
+
+/* Individual link button styling */
+.link-btn {
+    display: inline-flex !important;   /* Flex for centering */
+    align-items: center;                /* Vertical center */
+    justify-content: center;            /* Horizontal center */
+    padding: 8px 12px !important;       /* Comfortable padding */
+    font-size: 13px !important;         /* Readable size */
+    font-weight: 500;                   /* Medium weight */
+    text-decoration: none !important;   /* No underline */
+    border-radius: 6px !important;      /* Rounded corners */
+    border: 1px solid #ddd !important; /* Subtle border */
+    background-color: #ffffff !important; /* White background */
+    color: #333 !important;             /* Dark text */
+    transition: all 0.2s ease;         /* Smooth transitions */
+    text-align: center;                 /* Center text */
+    min-height: 36px;                   /* Consistent height */
+    cursor: pointer;                    /* Pointer cursor */
+    box-sizing: border-box;             /* Include padding in width */
+    line-height: 1.2;                   /* Line height for text */
+    white-space: nowrap;                /* Prevent text wrapping */
+    vertical-align: top;                /* Align to top */
+    outline: none;                      /* Remove focus outline */
+}
+
+/* Reset any inherited link styles */
+a.link-btn {
+    color: inherit !important;          /* Use button color, not link color */
+    text-decoration: none !important;   /* No underline */
+}
+
+a.link-btn:visited {
+    color: inherit !important;          /* Use button color, not visited color */
+}
+
+a.link-btn:active {
+    color: inherit !important;          /* Use button color, not active color */
+}
+
+/* Link button hover effect */
+.link-btn:hover {
+    transform: translateY(-1px);       /* Slight lift effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    text-decoration: none;              /* No underline on hover */
+}
+
+/* Link button color categories */
+.link-btn.translate {
+    background-color: #e3f2fd !important; /* Light blue background */
+    border-color: #2196f3 !important;  /* Blue border */
+    color: #1976d2 !important;          /* Dark blue text */
+}
+
+.link-btn.translate:hover {
+    background-color: #bbdefb !important; /* Darker blue on hover */
+}
+
+.link-btn.dictionary {
+    background-color: #fff3e0 !important; /* Light orange background */
+    border-color: #ff9800 !important;  /* Orange border */
+    color: #f57c00 !important;          /* Dark orange text */
+}
+
+.link-btn.dictionary:hover {
+    background-color: #ffe0b2 !important; /* Darker orange on hover */
+}
+
+.link-btn.database {
+    background-color: #f3e5f5 !important; /* Light purple background */
+    border-color: #9c27b0 !important;  /* Purple border */
+    color: #7b1fa2 !important;          /* Dark purple text */
+}
+
+.link-btn.database:hover {
+    background-color: #e1bee7 !important; /* Darker purple on hover */
+}
+
+.link-btn.learning {
+    background-color: #e8f5e8 !important; /* Light green background */
+    border-color: #4caf50 !important;  /* Green border */
+    color: #388e3c !important;          /* Dark green text */
+}
+
+.link-btn.learning:hover {
+    background-color: #c8e6c9 !important; /* Darker green on hover */
+}
+
+.link-btn.mobile {
+    background-color: #fce4ec !important; /* Light pink background */
+    border-color: #e91e63 !important;  /* Pink border */
+    color: #c2185b !important;          /* Dark pink text */
+}
+
+.link-btn.mobile:hover {
+    background-color: #f8bbd9 !important; /* Darker pink on hover */
+}
+
+.link-btn.tools {
+    background-color: #fff8e1 !important; /* Light yellow background */
+    border-color: #ffc107 !important;  /* Yellow border */
+    color: #f9a825 !important;          /* Dark yellow text */
+}
+
+.link-btn.tools:hover {
+    background-color: #fff3c4 !important; /* Darker yellow on hover */
+}
+
+.link-btn.images {
+    background-color: #e0f2f1 !important; /* Light teal background */
+    border-color: #009688 !important;  /* Teal border */
+    color: #00695c !important;          /* Dark teal text */
+}
+
+.link-btn.images:hover {
+    background-color: #b2dfdb !important; /* Darker teal on hover */
+}
+
+/* Night mode resource styling */
+.nightMode .resource-group {
+    background-color: #333 !important; /* Dark background */
+    border-color: #555 !important;     /* Dark border */
+}
+
+.nightMode .resource-group h4 {
+    color: #eee !important;             /* Light text */
+    border-bottom-color: #555 !important; /* Dark border */
+}
+
+.nightMode .resource-subgroup h5 {
+    color: #bbb !important;             /* Light gray text */
+}
+
+.nightMode .link-btn {
+    background-color: #444 !important; /* Dark background */
+    border-color: #666 !important;     /* Dark border */
+    color: #ccc !important;             /* Light text */
+}
+
+.nightMode .link-btn:hover {
+    background-color: #555 !important; /* Lighter on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
+/* Mobile responsive design */
+@media screen and (min-width: 768px) {
+    .mobile-only {
+        display: none;                  /* Hide mobile-only on desktop */
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .link-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller columns */
+        gap: 6px;                      /* Smaller gap */
+    }
+    
+    .link-btn {
+        padding: 6px 8px;              /* Smaller padding */
+        font-size: 12px;               /* Smaller text */
+        min-height: 32px;              /* Smaller height */
+    }
+    
+    .resource-group {
+        padding: 8px;                   /* Smaller padding */
+    }
+    
+    .resource-group h4 {
+        font-size: 16px;                /* Smaller heading */
+    }
+}
+
+/* ================================================================
  * AUDIO AND UTILITY CLASSES
  * ================================================================ */
 
