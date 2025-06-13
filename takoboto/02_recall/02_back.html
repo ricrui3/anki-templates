@@ -154,7 +154,7 @@
 <!-- AUDIO SECTION -->
 <!-- Native speaker audio (if available) -->
 {{#Audio}}
-{{Audio}}
+    {{Audio}}
 {{/Audio}}
 
 <!-- Text-to-Speech fallback (when no native audio) -->
@@ -166,20 +166,6 @@
     {{tts ja_JP voices=Apple_Otoya:kanji:Japanese}}
 </div>
 {{/Audio}}
-
-<!-- TTS for example sentences -->
-<div id="tts">
-    {{#Sentence}}
-    <!-- Android TTS for the sentence -->
-    <tts service="android" voice="ja_JP">{{kanji:Sentence}}</tts>
-    {{/Sentence}}
-</div>
-<div id="tts">
-    {{#Sentence}}
-    <!-- Apple TTS alternative for the sentence -->
-    {{tts ja_JP voices=Apple_Otoya:kanji:Sentence}}
-    {{/Sentence}}
-</div>
 
 <!-- JAVASCRIPT FUNCTIONALITY -->
 <script>
