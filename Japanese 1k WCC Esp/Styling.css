@@ -1114,8 +1114,21 @@ summary {
 
 /* Resources section - Enlaces de recursos */
 
+.resources-container {
+    display: flex;
+    justify-content: center;
+    margin: 12px auto;
+    max-width: 400px;
+    padding: 0 32px;
+}
+
 .resources-section {
-    margin-top: 12px;
+    width: 100%;
+    background-color: hsl(0deg 80% 50% / 3%);
+    border-radius: 4px;
+    padding: 3px;
+    margin: 3px 0;
+    border: 1px solid hsl(0deg 80% 50% / 15%);
 }
 
 .resources-section > summary {
@@ -1128,6 +1141,7 @@ summary {
     border-radius: 6px;
     margin-bottom: 8px;
     user-select: none;
+    text-align: center;
 }
 
 .resources-section > summary:hover {
@@ -1158,6 +1172,7 @@ summary {
     color: #2e2e30;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 6px;
+    text-align: center;
 }
 
 .resource-subgroup {
@@ -1175,13 +1190,75 @@ summary {
     color: #555;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .link-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 8px;
     margin-bottom: 12px;
+}
+
+/* Ajustes para móvil */
+@media screen and (max-width: 767px) {
+    .resources-container {
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 8px auto;
+    }
+    .link-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px;
+    }
+}
+
+/* Asegurar que los recursos no interfieran con los gestos de calificación */
+.resources-section {
+    position: relative;
+    z-index: 1;
+}
+
+.resources-section[open] {
+    margin-bottom: 60px; /* Espacio para los botones de calificación */
+}
+
+/* Furigana toggle functionality */
+.furigana-clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.furigana-clickable:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.nightMode .furigana-clickable:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Indicador visual de que es clickeable */
+.furigana-clickable::after {
+    content: "👁️";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 10px;
+    opacity: 0.3;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.furigana-clickable:hover::after {
+    opacity: 0.7;
+}
+
+/* Estado cuando el furigana está oculto */
+.furigana-hidden ruby rt {
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .link-btn {
@@ -1303,70 +1380,4 @@ summary {
 .nightMode .link-btn:hover {
     background-color: #555;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Ocultar enlaces móviles en desktop */
-@media screen and (min-width: 768px) {
-    .mobile-only {
-        display: none;
-    }
-}
-
-/* Responsive para móviles */
-@media screen and (max-width: 767px) {
-    .link-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 6px;
-    }
-    
-    .link-btn {
-        padding: 6px 8px;
-        font-size: 12px;
-        min-height: 32px;
-    }
-    
-    .resource-group {
-        padding: 8px;
-    }
-    
-    .resource-group h4 {
-        font-size: 16px;
-    }
-}
-
-/* Furigana toggle functionality */
-.furigana-clickable {
-    cursor: pointer;
-    position: relative;
-}
-
-.furigana-clickable:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
-}
-
-.nightMode .furigana-clickable:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* Indicador visual de que es clickeable */
-.furigana-clickable::after {
-    content: "👁️";
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    font-size: 10px;
-    opacity: 0.3;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-}
-
-.furigana-clickable:hover::after {
-    opacity: 0.7;
-}
-
-/* Estado cuando el furigana está oculto */
-.furigana-hidden ruby rt {
-    visibility: hidden !important;
-    opacity: 0 !important;
 }

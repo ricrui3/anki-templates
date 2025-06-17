@@ -18,6 +18,76 @@
     </div>
   </div>
 
+  <!-- Enlaces de recursos -->
+  <div class="resources-container">
+    <details class="resources-section">
+      <summary>🔗 Recursos externos</summary>
+
+      {{#VocabKanji}}
+      <div class="resource-group">
+        <h4>📚 Vocabulario</h4>
+        
+        <div class="resource-subgroup">
+          <h5>Diccionarios</h5>
+          <div class="link-grid">
+            <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Takoboto Web" class="link-btn dictionary">
+              🐙 Takoboto</a>
+            <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Takoboto Android" class="link-btn mobile">
+              📱 Takoboto</a>
+            <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji" title="Kanji en Jisho" class="link-btn dictionary">
+              📖 Jisho</a>
+            <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}" title="Sinónimos en Weblio" class="link-btn dictionary">
+              📝 Weblio</a>
+          </div>
+        </div>
+
+        <div class="resource-subgroup">
+          <h5>Aprendizaje</h5>
+          <div class="link-grid">
+            <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}" title="WaniKani" class="link-btn learning">
+              🐊 WaniKani</a>
+            <a href="kanjistudy://search?q={{text:VocabKanji}}" title="KanjiStudy búsqueda" class="link-btn mobile">
+              🀄 Kanji Study</a>
+            <a href="kanjistudy://draw?kanji={{text:VocabKanji}}" title="KanjiStudy dibujo" class="link-btn mobile">
+              🖌️ Kanji Study Dibujo</a>
+            <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html" title="Conjugaciones de verbos" class="link-btn tools">
+              🔄 Verbos</a>
+          </div>
+        </div>
+
+        <div class="resource-subgroup">
+          <h5>Contexto</h5>
+          <div class="link-grid">
+            <a href="https://sentencesearch.neocities.org/#{{text:kanji:VocabKanji}}" title="Oraciones de ejemplo" class="link-btn database">
+              💬 Oraciones</a>
+            <a href="https://www.irasutoya.com/search?q={{kanji:text:VocabKanji}}" title="Imágenes en Irasutoya" class="link-btn images">
+              🎨 Irasutoya</a>
+            <a href="https://duckduckgo.com/?q={{kanji:text:VocabKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp" title="Búsqueda de imágenes" class="link-btn images">
+              🖼️ Imágenes</a>
+          </div>
+        </div>
+      </div>
+      {{/VocabKanji}}
+
+      {{#SentKanji}}
+      <div class="resource-group">
+        <h4>📝 Oración</h4>
+        <div class="link-grid">
+          <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:SentKanji}}" title="Traducir oración en DeepL" class="link-btn translate">
+            🌐 DeepL</a>
+          <a href="https://jpdb.io/search?q={{text:kanji:SentKanji}}&lang=spanish#a" title="Detalles de la oración en JPDB" class="link-btn database">
+            📊 JPDB</a>
+          <a href="https://takoboto.jp/?q={{text:kanji:SentKanji}}&lang=spa" title="Detalles de la oración en Takoboto Web" class="link-btn dictionary">
+            🐙 Takoboto</a>
+          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:SentKanji}};end" title="Takoboto Android" class="link-btn mobile">
+            📱 Takoboto</a>
+        </div>
+      </div>
+      {{/SentKanji}}
+      
+    </details>
+  </div>
+
   <!-- Audios y acentos -->
   <section class="headword_section">
     <div class="vocab sent-center">
@@ -120,85 +190,6 @@
   </div>
 
   <hr>
-
-
-  <!-- Enlaces de recursos -->
-  <details class="resources-section">
-    <summary>🔗 Recursos externos</summary>
-    
-    {{#SentKanji}}
-    <div class="resource-group">
-      <h4>📝 Oración</h4>
-      <div class="link-grid">
-        <a href="https://www.deepl.com/translator#ja/es/{{text:kanji:SentKanji}}" title="Traducir oración en DeepL" class="link-btn translate">
-          🌐 DeepL</a>
-        <a href="https://jpdb.io/search?q={{text:kanji:SentKanji}}&lang=spanish#a" title="Detalles de la oración en JPDB" class="link-btn database">
-          📊 JPDB</a>
-        <a href="https://takoboto.jp/?q={{text:kanji:SentKanji}}&lang=spa" title="Detalles de la oración en Takoboto Web" class="link-btn dictionary">
-          🐙 Takoboto</a>
-        <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:kanji:SentKanji}};end" title="Takoboto Android" class="link-btn mobile">
-          📱 Takoboto</a>
-      </div>
-    </div>
-    {{/SentKanji}}
-
-    {{#VocabKanji}}
-    <div class="resource-group">
-      <h4>📚 Vocabulario</h4>
-      
-      <div class="resource-subgroup">
-        <h5>Diccionarios</h5>
-        <div class="link-grid">
-          <a href="https://takoboto.jp/?q={{text:VocabKanji}}&lang=spa" title="Takoboto Web" class="link-btn dictionary">
-            🐙 Takoboto</a>
-          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Takoboto Android" class="link-btn mobile">
-            📱 Takoboto</a>
-          <a href="https://jisho.org/search/{{text:kanji:VocabKanji}}%20%23kanji" title="Kanji en Jisho" class="link-btn dictionary">
-            📖 Jisho</a>
-          <a href="https://thesaurus.weblio.jp/content/{{text:VocabKanji}}" title="Sinónimos en Weblio" class="link-btn dictionary">
-            📝 Weblio</a>
-        </div>
-      </div>
-
-      <div class="resource-subgroup">
-        <h5>Aprendizaje</h5>
-        <div class="link-grid">
-          <a href="https://www.wanikani.com/search?query={{text:VocabKanji}}" title="WaniKani" class="link-btn learning">
-            🐊 WaniKani</a>
-          <a href="kanjistudy://search?q={{text:VocabKanji}}" title="KanjiStudy búsqueda" class="link-btn mobile">
-            🀄 Kanji Study</a>
-          <a href="kanjistudy://draw?kanji={{text:VocabKanji}}" title="KanjiStudy dibujo" class="link-btn mobile">
-            🖌️ Kanji Study Dibujo</a>
-          <a href="https://conjugador.reverso.net/conjugacion-japones-verbo-{{text:VocabKanji}}.html" title="Conjugaciones de verbos" class="link-btn tools">
-            🔄 Verbos</a>
-        </div>
-      </div>
-
-      <div class="resource-subgroup">
-        <h5>Contexto</h5>
-        <div class="link-grid">
-          <a href="https://sentencesearch.neocities.org/#{{text:kanji:VocabKanji}}" title="Oraciones de ejemplo" class="link-btn database">
-            💬 Oraciones</a>
-          <a href="https://www.irasutoya.com/search?q={{kanji:text:VocabKanji}}" title="Imágenes en Irasutoya" class="link-btn images">
-            🎨 Irasutoya</a>
-          <a href="https://duckduckgo.com/?q={{kanji:text:VocabKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp" title="Búsqueda de imágenes" class="link-btn images">
-            🖼️ Imágenes</a>
-        </div>
-      </div>
-
-      <div class="resource-subgroup mobile-only">
-        <h5>Apps móviles</h5>
-        <div class="link-grid">
-          <a href="intent:#Intent;package=jp.takoboto;action=jp.takoboto.SEARCH;S.q={{text:VocabKanji}};end" title="Takoboto Android" class="link-btn mobile">
-            📱 Takoboto</a>
-        </div>
-      </div>
-    </div>
-    {{/VocabKanji}}
-    
-  </details>
-
-
 
 </div> <!-- /wrap -->
 
