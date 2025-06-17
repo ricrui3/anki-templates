@@ -373,14 +373,14 @@
   }
 
   function toggleFuriganaInElement(element) {
-    element.classList.toggle('furigana-hidden');
+    element.classList.toggle('furigana-visible');
     
     // Cambiar el icono del elemento para indicar el estado
-    const hasHiddenFurigana = element.classList.contains('furigana-hidden');
+    const hasVisibleFurigana = element.classList.contains('furigana-visible');
     
     // Feedback visual temporal
     const originalBg = element.style.backgroundColor;
-    element.style.backgroundColor = hasHiddenFurigana ? 'rgba(255, 0, 0, 0.1)' : 'rgba(0, 255, 0, 0.1)';
+    element.style.backgroundColor = hasVisibleFurigana ? 'rgba(0, 255, 0, 0.1)' : 'rgba(255, 0, 0, 0.1)';
     setTimeout(() => {
       element.style.backgroundColor = originalBg;
     }, 200);

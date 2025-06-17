@@ -334,14 +334,13 @@ header>div:not(:last-child) {
     background: #333;
 }
 
-/* Furigana hover on front */
-
+/* Modificar el estado por defecto del furigana */
 #question ruby rt {
     visibility: hidden;
 }
 
 .fside #question ruby rt {
-    visibility: visible;
+    visibility: hidden; /* Cambiado de visible a hidden */
 }
 
 #question:hover rt {
@@ -1224,19 +1223,20 @@ summary {
     margin-bottom: 60px; /* Espacio para los botones de calificación */
 }
 
-/* Furigana toggle functionality */
+/* Modificar el estado por defecto de los elementos clickeables */
 .furigana-clickable {
     cursor: pointer;
     position: relative;
 }
 
-.furigana-clickable:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+.furigana-clickable ruby rt {
+    visibility: hidden !important; /* Asegura que el furigana esté oculto por defecto */
 }
 
-.nightMode .furigana-clickable:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+/* Estado cuando el furigana está visible */
+.furigana-visible ruby rt {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Indicador visual de que es clickeable */
